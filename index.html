@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ชีทสรุปเตรียมสอบ Calculus 1 (แคลคูลัส 1) All-in-One W1–W16 | อ.ดำรงค์ ทิพย์โยธา</title>
+    
+    <!-- Google Fonts: Sarabun & Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        navy: {
+                            850: '#152238',
+                            900: '#0f172a',
+                            950: '#080d1a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- MathJax 3 Configuration & CDN -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                packages: {'[+]': ['ams', 'noerrors', 'noundefined']}
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                ignoreHtmlClass: 'tex2jax_ignore'
+            },
+            startup: {
+                pageReady: () => {
+                    return MathJax.startup.defaultPageReady();
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body {
+            font-family: 'Sarabun', 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* MathJax Overflow Fix for Mobile */
+        mjx-container[display="true"] {
+            overflow-x: auto;
+            overflow-y: hidden;
+            max-width: 100%;
+            padding: 0.4rem 0;
+        }
+
+        /* Print Media Styles */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 10mm;
+            }
+            body {
+                background-color: #ffffff !important;
+                font-size: 11pt !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-layout {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: flex-start !important;
+                gap: 12px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .print-left-col {
+                width: 66% !important;
+                flex: none !important;
+            }
+            .print-right-col {
+                width: 34% !important;
+                flex: none !important;
+                position: static !important;
+                height: auto !important;
+                max-height: none !important;
+                overflow: visible !important;
+                border: 1px solid #cbd5e1 !important;
+            }
+            .print-right-scroll {
+                max-height: none !important;
+                overflow: visible !important;
+            }
+            .module-card {
+                break-inside: avoid-page;
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                margin-bottom: 14px !important;
+            }
+            .solution-box {
+                display: block !important;
+            }
+            .formula-content {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- Top Header & Control Bar -->
+    <header class="sticky top-0 z-40 bg-slate-900 text-white shadow-md border-b border-slate-800">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 py-3">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+                <!-- Title & Reference -->
+                <div class="flex items-start sm:items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center font-bold text-lg shadow-inner shrink-0">
+                        $\int dx$
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white">
+                                ชีทสรุปเตรียมสอบ Calculus 1 (All-in-One)
+                            </h1>
+                            <span class="px-2 py-0.5 text-xs font-semibold rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">
+                                สัปดาห์ที่ 1–16
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-300 mt-0.5">
+                            อ้างอิงตำรา <span class="text-amber-300 font-medium">"แคลคูลัส 1" จุฬาลงกรณ์มหาวิทยาลัย</span> โดย รศ.ดำรงค์ ทิพย์โยธา และคณะ
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Global Controls & Progress -->
+                <div class="flex flex-wrap items-center gap-2 sm:gap-3 no-print">
+                    <!-- Progress Pill -->
+                    <div class="flex items-center gap-2.5 bg-slate-800/90 px-3 py-1.5 rounded-xl border border-slate-700">
+                        <div class="text-xs">
+                            <span class="text-slate-400">ฝึกทำแล้ว:</span>
+                            <span id="progress-text" class="font-bold text-emerald-400 ml-1">0 / 28 ข้อ</span>
+                        </div>
+                        <div class="w-20 sm:w-24 h-2 bg-slate-700 rounded-full overflow-hidden">
+                            <div id="progress-bar" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Toggle All Solutions -->
+                    <button id="btn-toggle-all-solutions" onclick="toggleAllSolutions()" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-indigo-600 hover:bg-indigo-500 text-white transition shadow-sm flex items-center gap-1.5 cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        <span id="label-toggle-all-solutions">เปิดเฉลยทั้งหมด</span>
+                    </button>
+
+                    <!-- Print / Save PDF -->
+                    <button onclick="handlePrintPDF()" class="px-3 py-1.5 rounded-xl text-xs sm:text-sm font-medium bg-slate-700 hover:bg-slate-600 text-slate-100 border border-slate-600 transition shadow-sm flex items-center gap-1.5 cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                        <span>พิมพ์ / Save PDF</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Week Navigator Bar -->
+            <div class="mt-3 pt-2.5 border-t border-slate-800/80 no-print">
+                <div class="flex items-center gap-2 overflow-x-auto pb-1" id="week-navigator">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main 2-Column Layout -->
+    <main class="max-w-[1440px] mx-auto px-4 sm:px-6 py-6">
+        <div class="flex flex-col lg:flex-row gap-6 items-start print-layout">
+            
+            <!-- Left Column (65%): Study Modules W1-W16 -->
+            <div class="w-full lg:w-[65%] space-y-6 print-left-col" id="modules-container">
+                <!-- Module Cards Injected via JS -->
+            </div>
+
+            <!-- Right Column (35%): Sticky Formula Bank Sidebar -->
+            <aside class="w-full lg:w-[35%] lg:sticky lg:top-[116px] bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden print-right-col">
+                <!-- Sidebar Header -->
+                <div class="bg-slate-900 text-white px-4 py-3.5 border-b border-slate-800">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-indigo-400"></span>
+                            <h2 class="font-bold text-base tracking-wide">คลังสูตรคณิตศาสตร์สำคัญ</h2>
+                        </div>
+                        <span id="active-sync-badge" class="text-[11px] font-medium px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">
+                            ซิงค์: หมวดที่ 1
+                        </span>
+                    </div>
+
+                    <!-- Mode Switcher & Search -->
+                    <div class="mt-3 space-y-2 no-print">
+                        <div class="grid grid-cols-2 gap-1.5 bg-slate-800 p-1 rounded-xl">
+                            <button id="btn-mode-sync" onclick="setFormulaMode('sync')" class="py-1.5 px-2 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition cursor-pointer">
+                                ซิงค์ตามบทที่อ่าน (Auto)
+                            </button>
+                            <button id="btn-mode-all" onclick="setFormulaMode('all')" class="py-1.5 px-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition cursor-pointer">
+                                แสดงสูตรทั้งหมด
+                            </button>
+                        </div>
+
+                        <div class="flex gap-1.5">
+                            <div class="relative flex-1">
+                                <input type="text" id="formula-search" oninput="renderFormulas()" placeholder="ค้นหาสูตร เช่น ลิมิต, กฎลูกโซ่, sin, อินทิกรัล..." class="w-full bg-slate-800 text-white placeholder-slate-400 text-xs rounded-xl pl-8 pr-3 py-2 border border-slate-700 focus:outline-none focus:border-indigo-500">
+                                <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                            </div>
+                            <button onclick="toggleAllFormulaGroups()" id="btn-collapse-formulas" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded-xl border border-slate-700 transition cursor-pointer shrink-0" title="ย่อ/ขยายกลุ่มสูตรทั้งหมด">
+                                ย่อ/ขยาย
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formula Groups List -->
+                <div id="formula-list" class="p-3.5 space-y-3 max-h-[calc(100vh-245px)] overflow-y-auto print-right-scroll bg-slate-50/60">
+                    <!-- Injected via JS -->
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-[1440px] mx-auto px-4 sm:px-6 py-6 border-t border-slate-200 mt-8 text-center text-xs text-slate-500 no-print">
+        <p>ชีทสรุปเตรียมสอบรายวิชา 2301107 Calculus I (แคลคูลัส 1) • เรียบเรียงเนื้อหาและโจทย์ฝึกหัดตามลำดับสัปดาห์ 1–16</p>
+        <p class="mt-1">อ้างอิงหนังสือเรียน "แคลคูลัส 1" ภาควิชาคณิตศาสตร์และวิทยาการคอมพิวเตอร์ คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย (รศ.ดำรงค์ ทิพย์โยธา และคณะ)</p>
+    </footer>
+
+    <!-- Application Data & Logic -->
+    <script>
+        // ============================================================================
+        // 1. คลังสูตรคณิตศาสตร์ (Formula Bank Data) แบ่งตามหมวดเนื้อหา
+        // ============================================================================
+        const FORMULA_GROUPS = [
+            {
+                id: 'fg-1',
+                title: '1. ลิมิตและความต่อเนื่อง (บทที่ 1)',
+                modules: [1, 2],
+                formulas: [
+                    { name: 'นิยามลิมิตสองข้าง', tex: '\\lim_{x \\to a} f(x) = L \\iff \\lim_{x \\to a^-} f(x) = L = \\lim_{x \\to a^+} f(x)' },
+                    { name: 'ลิมิตตรีโกณมิติพื้นฐาน', tex: '\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1, \\quad \\lim_{x \\to 0} \\frac{1 - \\cos x}{x} = 0' },
+                    { name: 'ลิมิตที่อนันต์ (พหุนาม)', tex: '\\lim_{x \\to \\pm\\infty} \\frac{1}{x^r} = 0 \\quad (r > 0), \\quad \\sqrt{x^2} = |x|' },
+                    { name: 'ลิมิตนิยามค่า $e$', tex: '\\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x = e, \\quad \\lim_{x \\to 0} (1 + x)^{1/x} = e' },
+                    { name: 'ความต่อเนื่องที่ $x=a$', tex: '1)\\; f(a)\\text{ หาค่าได้} \\quad 2)\\; \\lim_{x \\to a} f(x)\\text{ มีค่า} \\quad 3)\\; \\lim_{x \\to a} f(x) = f(a)' }
+                ]
+            },
+            {
+                id: 'fg-2',
+                title: '2. อนุพันธ์ กฎลูกโซ่ และอนุพันธ์ปริยาย (บทที่ 2)',
+                modules: [3, 4],
+                formulas: [
+                    { name: 'นิยามอนุพันธ์', tex: "f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}" },
+                    { name: 'กฎผลคูณและผลหาร', tex: "(uv)' = u'v + uv', \\quad \\left(\\frac{u}{v}\\right)' = \\frac{u'v - uv'}{v^2}" },
+                    { name: 'กฎลูกโซ่ (Chain Rule)', tex: '\\frac{dy}{dx} = \\frac{dy}{du} \\cdot \\frac{du}{dx}, \\quad \\frac{d}{dx}[f(g(x))] = f\'(g(x))g\'(x)' },
+                    { name: 'อนุพันธ์ตรีโกณมิติ', tex: '\\begin{aligned} &(\\sin u)\' = \\cos u \\cdot u\', &&(\\cos u)\' = -\\sin u \\cdot u\' \\\\ &(\\tan u)\' = \\sec^2 u \\cdot u\', &&(\\cot u)\' = -\\csc^2 u \\cdot u\' \\\\ &(\\sec u)\' = \\sec u \\tan u \\cdot u\', &&(\\csc u)\' = -\\csc u \\cot u \\cdot u\' \\end{aligned}' },
+                    { name: 'อนุพันธ์ตรีโกณมิติผกผัน', tex: '\\begin{aligned} &(\\arcsin u)\' = \\frac{u\'}{\\sqrt{1-u^2}}, &&(\\arccos u)\' = \\frac{-u\'}{\\sqrt{1-u^2}} \\\\ &(\\arctan u)\' = \\frac{u\'}{1+u^2}, &&(\\text{arcsec } u)\' = \\frac{u\'}{|u|\\sqrt{u^2-1}} \\end{aligned}' },
+                    { name: 'ค่าเชิงอนุพันธ์ (Differential)', tex: "dy = f'(x)\\,dx, \\quad f(a + \\Delta x) \\approx f(a) + f'(a)\\,dx" }
+                ]
+            },
+            {
+                id: 'fg-3',
+                title: '3. อินทิกรัลพื้นฐานและทฤษฎีบทหลักมูล (บทที่ 3)',
+                modules: [5, 6],
+                formulas: [
+                    { name: 'สูตรอินทิกรัลยกกำลัง', tex: '\\int u^n\\,du = \\frac{u^{n+1}}{n+1} + C \\quad (n \\neq -1)' },
+                    { name: 'อินทิกรัลตรีโกณมิติพื้นฐาน', tex: '\\begin{aligned} &\\int \\sin u\\,du = -\\cos u + C, &&\\int \\cos u\\,du = \\sin u + C \\\\ &\\int \\sec^2 u\\,du = \\tan u + C, &&\\int \\csc^2 u\\,du = -\\cot u + C \\\\ &\\int \\sec u\\tan u\\,du = \\sec u + C, &&\\int \\csc u\\cot u\\,du = -\\csc u + C \\end{aligned}' },
+                    { name: 'ทฤษฎีบทหลักมูลฯ ข้อที่ 1', tex: '\\frac{d}{dx} \\int_{a}^{g(x)} f(t)\\,dt = f(g(x)) \\cdot g\'(x)' },
+                    { name: 'ทฤษฎีบทหลักมูลฯ ข้อที่ 2', tex: '\\int_{a}^{b} f(x)\\,dx = F(b) - F(a) \\quad \\text{เมื่อ } F\'(x) = f(x)' }
+                ]
+            },
+            {
+                id: 'fg-4',
+                title: '4. ฟังก์ชันอดิศัย: ln, exp, ตรีโกณฯ ผกผัน (บทที่ 4)',
+                modules: [6, 7],
+                formulas: [
+                    { name: 'อนุพันธ์และอินทิกรัล $\\ln u$', tex: '\\frac{d}{dx}(\\ln u) = \\frac{u\'}{u}, \\quad \\int \\frac{1}{u}\\,du = \\ln|u| + C' },
+                    { name: 'อนุพันธ์และอินทิกรัล $e^u, a^u$', tex: '\\frac{d}{dx}(e^u) = e^u u\', \\quad \\int a^u\\,du = \\frac{a^u}{\\ln a} + C' },
+                    { name: 'อินทิกรัลตรีโกณมิติครบชุด', tex: '\\begin{aligned} &\\int \\tan u\\,du = \\ln|\\sec u| + C, &&\\int \\cot u\\,du = \\ln|\\sin u| + C \\\\ &\\int \\sec u\\,du = \\ln|\\sec u + \\tan u| + C, &&\\int \\csc u\\,du = \\ln|\\csc u - \\cot u| + C \\end{aligned}' },
+                    { name: 'อินทิกรัลให้ผลเป็นตรีโกณฯ ผกผัน', tex: '\\begin{aligned} &\\int \\frac{du}{\\sqrt{a^2 - u^2}} = \\arcsin\\frac{u}{a} + C \\\\ &\\int \\frac{du}{a^2 + u^2} = \\frac{1}{a}\\arctan\\frac{u}{a} + C \\\\ &\\int \\frac{du}{u\\sqrt{u^2 - a^2}} = \\frac{1}{a}\\text{arcsec}\\frac{|u|}{a} + C \\end{aligned}' }
+                ]
+            },
+            {
+                id: 'fg-5',
+                title: '5. การประยุกต์อนุพันธ์ กราฟ และโลปิตาล (บทที่ 5)',
+                modules: [8, 9],
+                formulas: [
+                    { name: 'การทดสอบอนุพันธ์อันดับ 1 & 2', tex: "f'(x)>0 \\Rightarrow \\text{เพิ่ม}, \\quad f''(x)>0 \\Rightarrow \\text{เว้าบน } (\\cup), \\quad f''(x)<0 \\Rightarrow \\text{เว้าล่าง } (\\cap)" },
+                    { name: 'กฎของโลปิตาล (L\'Hôpital)', tex: '\\lim_{x \\to c} \\frac{f(x)}{g(x)} = \\lim_{x \\to c} \\frac{f\'(x)}{g\'(x)} \\quad \\left(\\text{รูปแบบ } \\frac{0}{0} \\text{ หรือ } \\frac{\\infty}{\\infty}\\right)' },
+                    { name: 'การแปลงรูปแบบไม่กำหนด', tex: '0 \\cdot \\infty \\Rightarrow \\frac{0}{1/\\infty}, \\quad 1^\\infty, 0^0, \\infty^0 \\Rightarrow y = f(x)^{g(x)},\\; \\ln y = g(x)\\ln f(x)' }
+                ]
+            },
+            {
+                id: 'fg-6',
+                title: '6. เทคนิคการอินทิเกรต (บทที่ 6)',
+                modules: [10, 11],
+                formulas: [
+                    { name: 'อินทิเกรตทีละส่วน (By Parts)', tex: '\\int u\\,dv = uv - \\int v\\,du \\quad (\\text{ลำดับเลือก } u: \\text{LIATE})' },
+                    { name: 'เอกลักษณ์ตรีโกณฯ มุมครึ่งเท่า', tex: '\\sin^2 x = \\frac{1 - \\cos 2x}{2}, \\quad \\cos^2 x = \\frac{1 + \\cos 2x}{2}' },
+                    { name: 'เอกลักษณ์ตรีโกณฯ กำลังสอง', tex: '\\sin^2 x + \\cos^2 x = 1, \\quad 1 + \\tan^2 x = \\sec^2 x' },
+                    { name: 'การแทนค่าตรีโกณฯ (Trig Sub)', tex: '\\begin{aligned} &\\sqrt{a^2 - x^2} \\Rightarrow x = a\\sin\\theta \\\\ &\\sqrt{a^2 + x^2} \\Rightarrow x = a\\tan\\theta \\\\ &\\sqrt{x^2 - a^2} \\Rightarrow x = a\\sec\\theta \\end{aligned}' }
+                ]
+            },
+            {
+                id: 'fg-7',
+                title: '7. การประยุกต์อินทิกรัล & อินทิกรัลไม่ตรงแบบ (บทที่ 7–8)',
+                modules: [12, 13, 14],
+                formulas: [
+                    { name: 'พื้นที่ระหว่างเส้นโค้ง', tex: 'A = \\int_a^b [f_{\\text{บน}}(x) - g_{\\text{ล่าง}}(x)]\\,dx = \\int_c^d [f_{\\text{ขวา}}(y) - g_{\\text{ซ้าย}}(y)]\\,dy' },
+                    { name: 'ปริมาตรภาคตัดขวาง (Slicing)', tex: 'V = \\int_a^b A(x)\\,dx \\quad \\text{หรือ} \\quad V = \\int_c^d A(y)\\,dy' },
+                    { name: 'ปริมาตรจาน/วงแหวน (Disk/Washer)', tex: 'V = \\pi \\int_a^b \\left([R(x)]^2 - [r(x)]^2\\right)dx' },
+                    { name: 'ปริมาตรเปลือกทรงกระบอก (Shell)', tex: 'V = 2\\pi \\int_a^b (\\text{รัศมี}) \\cdot (\\text{ความสูง})\\,dx' },
+                    { name: 'ความยาวส่วนโค้ง (Arc Length)', tex: 'L = \\int_a^b \\sqrt{1 + \\left(\\frac{dy}{dx}\\right)^2}\\,dx = \\int_c^d \\sqrt{1 + \\left(\\frac{dx}{dy}\\right)^2}\\,dy' },
+                    { name: 'อินทิกรัลไม่ตรงแบบ (Improper)', tex: '\\int_a^{\\infty} f(x)\\,dx = \\lim_{t \\to \\infty} \\int_a^t f(x)\\,dx, \\quad \\int_1^{\\infty} \\frac{1}{x^p}\\,dx \\text{ ลู่เข้าเมื่อ } p > 1' }
+                ]
+            }
+        ];
+
+        // ============================================================================
+        // 2. ข้อมูลเนื้อหาครบทั้ง 14 หมวด (สัปดาห์ที่ 1-16) อ้างอิงหนังสือ อ.ดำรงค์ ทิพย์โยธา
+        // ============================================================================
+        const MODULES = [
+            {
+                id: 1,
+                weekLabel: 'สัปดาห์ที่ 1',
+                examPeriod: 'MIDTERM',
+                title: 'ความหมายของลิมิต ลิมิตทางซ้ายและขวา ทฤษฎีบทเกี่ยวกับลิมิต',
+                bookRef: 'หนังสือ บทที่ 1: หัวข้อ 1.1–1.3',
+                tips: [
+                    'การหา $\\lim_{x \\to a} f(x)$ ให้ลอง <b>แทนค่า $x = a$ ตรงๆ ก่อนเสมอ</b> หากได้ตัวเลขจริงที่ไม่ใช่รูปแบบไม่กำหนด $\\frac{0}{0}$ ตอบค่านั้นได้ทันที',
+                    'กรณีฟังก์ชันแบ่งเงื่อนไข (Piecewise) หรือมีค่าสัมบูรณ์ $|x - a|$ ต้องแยกคิด <b>ลิมิตซ้าย ($x \\to a^-$)</b> และ <b>ลิมิตขวา ($x \\to a^+$)</b> หากไม่เท่ากัน สรุปว่า "ไม่มีลิมิต"',
+                    '<b>จุดระวังในห้องสอบ:</b> หากแทนค่าแล้วได้ $\\frac{0}{0}$ ห้ามตอบ $0$ หรือ $\\infty$ เด็ดขาด! ต้องจัดรูปโดยการแยกตัวประกอบ คูณสังยุค (Conjugate) หรือใช้เอกลักษณ์ตรีโกณมิติ $\\lim_{\\theta \\to 0}\\frac{\\sin\\theta}{\\theta} = 1$'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 1.3.7 (อ้างอิงตำรา รศ.ดำรงค์ ทิพย์โยธา)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{x - 4}$',
+                        solution: `เมื่อแทนค่า $x = 4$ จะได้รูปแบบ $\\frac{0}{0}$ จึงจัดรูปโดยแยกตัวประกอบตัวส่วน $x - 4 = (\\sqrt{x} - 2)(\\sqrt{x} + 2)$ (หรือคูณด้วยสังยุค $\\sqrt{x}+2$):
+                        $$\\begin{aligned}
+                        \\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{x - 4} &= \\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{(\\sqrt{x} - 2)(\\sqrt{x} + 2)} \\\\
+                        &= \\lim_{x \\to 4} \\frac{1}{\\sqrt{x} + 2} = \\frac{1}{\\sqrt{4} + 2} = \\frac{1}{4}
+                        \\end{aligned}$$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 1.3.11 (ลิมิตฟังก์ชันค่าสัมบูรณ์และตรีโกณมิติ)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\lim_{x \\to 0} \\frac{\\sin 5x}{3x}$ และตรวจสอบการมีอยู่ของ $\\displaystyle \\lim_{x \\to 2} \\frac{|x - 2|}{x - 2}$',
+                        solution: `1) จัดรูปให้เข้ากับสูตร $\\lim_{u \\to 0} \\frac{\\sin u}{u} = 1$:
+                        $$\\lim_{x \\to 0} \\frac{\\sin 5x}{3x} = \\frac{5}{3} \\lim_{x \\to 0} \\frac{\\sin 5x}{5x} = \\frac{5}{3}(1) = \\frac{5}{3}$$
+                        2) พิจารณาลิมิตซ้ายและขวาที่ $x = 2$:
+                        $$\\lim_{x \\to 2^-} \\frac{|x - 2|}{x - 2} = \\lim_{x \\to 2^-} \\frac{-(x - 2)}{x - 2} = -1, \\quad \\lim_{x \\to 2^+} \\frac{|x - 2|}{x - 2} = \\lim_{x \\to 2^+} \\frac{x - 2}{x - 2} = 1$$
+                        เนื่องจากลิมิตซ้าย $\\neq$ ลิมิตขวา ดังนั้น $\\displaystyle \\lim_{x \\to 2} \\frac{|x - 2|}{x - 2}$ <b>ไม่มีลิมิต (Does Not Exist)</b>`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-1-1',
+                        ref: 'แบบฝึกหัด 1.3 ข้อ 1',
+                        question: 'จงหาค่าของ $\\displaystyle \\lim_{x \\to 3} \\frac{x^2 - 9}{x^2 - 2x - 3}$',
+                        answer: '$\\frac{3}{2}$',
+                        solution: `แทนค่า $x = 3$ ได้ $\\frac{0}{0}$ แยกตัวประกอบทั้งเศษและส่วน:
+                        $$\\lim_{x \\to 3} \\frac{(x - 3)(x + 3)}{(x - 3)(x + 1)} = \\lim_{x \\to 3} \\frac{x + 3}{x + 1} = \\frac{3 + 3}{3 + 1} = \\frac{6}{4} = \\frac{3}{2}$$`
+                    },
+                    {
+                        id: 'ex-1-2',
+                        ref: 'แบบฝึกหัด 1.3 ข้อ 2',
+                        question: 'จงหาค่าของ $\\displaystyle \\lim_{x \\to 0} \\frac{\\sqrt{x + 9} - 3}{x}$',
+                        answer: '$\\frac{1}{6}$',
+                        solution: `คูณทั้งเศษและส่วนด้วยสังยุค $\\sqrt{x + 9} + 3$:
+                        $$\\begin{aligned}
+                        \\lim_{x \\to 0} \\frac{(\\sqrt{x + 9} - 3)(\\sqrt{x + 9} + 3)}{x(\\sqrt{x + 9} + 3)} &= \\lim_{x \\to 0} \\frac{(x + 9) - 9}{x(\\sqrt{x + 9} + 3)} \\\\
+                        &= \\lim_{x \\to 0} \\frac{x}{x(\\sqrt{x + 9} + 3)} = \\frac{1}{\\sqrt{9} + 3} = \\frac{1}{6}
+                        \\end{aligned}$$`
+                    }
+                ]
+            },
+            {
+                id: 2,
+                weekLabel: 'สัปดาห์ที่ 2',
+                examPeriod: 'MIDTERM',
+                title: 'ลิมิตเกี่ยวกับอนันต์ และความต่อเนื่องของฟังก์ชัน',
+                bookRef: 'หนังสือ บทที่ 1: หัวข้อ 1.4–1.5',
+                tips: [
+                    'ลิมิตที่อนันต์ ($x \\to \\pm\\infty$) ของเศษส่วนพหุนาม ให้หารทั้งเศษและส่วนด้วย $x^n$ ที่กำลังสูงสุดของตัวส่วน',
+                    '<b>ข้อควรระวังสูงสุดในห้องสอบ:</b> เมื่อดึง $x^2$ ออกจากรากที่สอง ต้องใช้ $\\sqrt{x^2} = |x|$ เสมอ! ถ้า $x \\to +\\infty$ จะได้ $|x| = x$ แต่ถ้า $x \\to -\\infty$ จะได้ $|x| = -x$',
+                    'การตรวจสอบความต่อเนื่องของ $f$ ที่ $x = a$ ต้องเช็กครบ 3 ข้อ: (1) $f(a)$ หาค่าได้ (2) $\\lim_{x \\to a} f(x)$ มีค่า (3) $\\lim_{x \\to a} f(x) = f(a)$'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 1.4.4 & 1.4.5 (ลิมิตที่อนันต์ติดรากที่สอง)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\lim_{x \\to -\\infty} \\frac{\\sqrt{4x^2 + 3}}{2x - 1}$',
+                        solution: `ดึง $x^2$ ออกจากรากที่สอง โดยใช้ $\\sqrt{x^2} = |x| = -x$ (เพราะ $x \\to -\\infty$ ทำให้ $x < 0$):
+                        $$\\begin{aligned}
+                        \\lim_{x \\to -\\infty} \\frac{\\sqrt{x^2(4 + 3/x^2)}}{x(2 - 1/x)} &= \\lim_{x \\to -\\infty} \\frac{|x|\\sqrt{4 + 3/x^2}}{x(2 - 1/x)} \\\\
+                        &= \\lim_{x \\to -\\infty} \\frac{-x\\sqrt{4 + 3/x^2}}{x(2 - 1/x)} = \\frac{-\\sqrt{4 + 0}}{2 - 0} = -1
+                        \\end{aligned}$$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 1.5.10 (การหาค่าคงที่ทำให้ฟังก์ชันต่อเนื่อง)',
+                        problem: 'กำหนดให้ $f(x) = \\begin{cases} \\dfrac{x^2 - 4}{x - 2} & , x \\neq 2 \\\\ k & , x = 2 \\end{cases}$ จงหาค่า $k$ ที่ทำให้ $f$ ต่อเนื่องที่ $x = 2$',
+                        solution: `เพื่อให้ $f$ ต่อเนื่องที่ $x = 2$ ต้องได้ $f(2) = \\lim_{x \\to 2} f(x)$:
+                        $$k = \\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} = \\lim_{x \\to 2} \\frac{(x - 2)(x + 2)}{x - 2} = \\lim_{x \\to 2} (x + 2) = 4$$
+                        ดังนั้น $k = 4$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-2-1',
+                        ref: 'แบบฝึกหัด 1.4 ข้อ 1',
+                        question: 'จงหาค่าของ $\\displaystyle \\lim_{x \\to \\infty} \\left(\\sqrt{x^2 + 6x} - x\\right)$',
+                        answer: '$3$',
+                        solution: `รูปแบบ $\\infty - \\infty$ คูณด้วยสังยุค $\\frac{\\sqrt{x^2 + 6x} + x}{\\sqrt{x^2 + 6x} + x}$:
+                        $$\\begin{aligned}
+                        \\lim_{x \\to \\infty} \\frac{(x^2 + 6x) - x^2}{\\sqrt{x^2 + 6x} + x} &= \\lim_{x \\to \\infty} \\frac{6x}{x\\sqrt{1 + 6/x} + x} \\\\
+                        &= \\lim_{x \\to \\infty} \\frac{6}{\\sqrt{1 + 6/x} + 1} = \\frac{6}{1 + 1} = 3
+                        \\end{aligned}$$`
+                    },
+                    {
+                        id: 'ex-2-2',
+                        ref: 'แบบฝึกหัด 1.5 ข้อ 2',
+                        question: 'กำหนด $g(x) = \\begin{cases} cx + 1 & , x \\le 3 \\\\ cx^2 - 1 & , x > 3 \\end{cases}$ จงหาค่า $c$ ที่ทำให้ $g$ ต่อเนื่องบน $(-\\infty, \\infty)$',
+                        answer: '$c = \\frac{1}{3}$',
+                        solution: `รอยต่ออยู่ที่ $x = 3$ จึงต้องให้ $\\lim_{x \\to 3^-} g(x) = \\lim_{x \\to 3^+} g(x) = g(3)$:
+                        $$3c + 1 = c(3)^2 - 1 \\implies 3c + 1 = 9c - 1 \\implies 6c = 2 \\implies c = \\frac{1}{3}$$`
+                    }
+                ]
+            },
+            {
+                id: 3,
+                weekLabel: 'สัปดาห์ที่ 3',
+                examPeriod: 'MIDTERM',
+                title: 'ความหมายของอนุพันธ์ การหาอนุพันธ์โดยใช้บทนิยามและสูตร กฎลูกโซ่ อนุพันธ์อันดับสูง',
+                bookRef: 'หนังสือ บทที่ 2: หัวข้อ 2.1–2.3',
+                tips: [
+                    'หากโจทย์สั่ง <b>"จงหาอนุพันธ์โดยใช้บทนิยาม"</b> ต้องตั้งสูตร $f\'(x) = \\lim_{h \\to 0} \\frac{f(x+h)-f(x)}{h}$ เท่านั้น ห้ามใช้สูตรลัดมิฉะนั้นจะไม่ได้คะแนนในส่วนวิธีทำ',
+                    '<b>กฎลูกโซ่ (Chain Rule):</b> ดิฟจากชั้นนอกสุดเข้าไปหาชั้นในสุดทีละชั้น เช่น $\\frac{d}{dx}[g(x)]^n = n[g(x)]^{n-1}g\'(x)$',
+                    'ความชันเส้นสัมผัสเส้นโค้ง $y = f(x)$ ที่จุด $(x_0, y_0)$ คือ $m = f\'(x_0)$ และสมการเส้นสัมผัสคือ $y - y_0 = m(x - x_0)$'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 2.1.10 (การหาอนุพันธ์โดยใช้บทนิยาม)',
+                        problem: 'จงหาอนุพันธ์ของ $f(x) = \\frac{1}{x}$ โดยใช้บทนิยามของอนุพันธ์',
+                        solution: `จากบทนิยาม $f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$:
+                        $$\\begin{aligned}
+                        f'(x) &= \\lim_{h \\to 0} \\frac{\\frac{1}{x+h} - \\frac{1}{x}}{h} = \\lim_{h \\to 0} \\frac{x - (x+h)}{hx(x+h)} \\\\
+                        &= \\lim_{h \\to 0} \\frac{-h}{hx(x+h)} = \\lim_{h \\to 0} \\frac{-1}{x(x+h)} = -\\frac{1}{x^2}
+                        \\end{aligned}$$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 2.2.5 (กฎลูกโซ่ซ้อนหลายชั้น)',
+                        problem: 'จงหา $\\frac{dy}{dx}$ เมื่อ $y = (3x^2 - 5x + 1)^4$',
+                        solution: `ใช้กฎลูกโซ่ ดิฟชั้นนอกยกกำลัง 4 แล้วคูณด้วยอนุพันธ์ไส้ใน:
+                        $$\\frac{dy}{dx} = 4(3x^2 - 5x + 1)^3 \\cdot \\frac{d}{dx}(3x^2 - 5x + 1) = 4(3x^2 - 5x + 1)^3(6x - 5)$$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-3-1',
+                        ref: 'แบบฝึกหัด 2.1 ข้อ 1',
+                        question: 'จงหาสมการเส้นสัมผัสเส้นโค้ง $y = x^3 - 3x + 4$ ณ จุด $(2, 6)$',
+                        answer: '$y = 9x - 12$',
+                        solution: `หาความชัน $m = y'(2)$ โดย $y' = 3x^2 - 3 \\implies m = 3(2)^2 - 3 = 9$
+                        สมการเส้นสัมผัส: $y - 6 = 9(x - 2) \\implies y = 9x - 12$`
+                    },
+                    {
+                        id: 'ex-3-2',
+                        ref: 'แบบฝึกหัด 2.2 ข้อ 2',
+                        question: 'กำหนด $y = \\sqrt{x^2 + 1}$ จงหาอนุพันธ์อันดับที่สอง $y\'\'$',
+                        answer: '$\\frac{1}{(x^2+1)^{3/2}}$',
+                        solution: `เขียน $y = (x^2+1)^{1/2}$ จะได้ $y' = \\frac{1}{2}(x^2+1)^{-1/2}(2x) = x(x^2+1)^{-1/2}$
+                        ใช้กฎผลคูณหา $y''$:
+                        $$y'' = (1)(x^2+1)^{-1/2} + x\\left(-\\frac{1}{2}(x^2+1)^{-3/2}(2x)\\right) = \\frac{(x^2+1) - x^2}{(x^2+1)^{3/2}} = \\frac{1}{(x^2+1)^{3/2}}$$`
+                    }
+                ]
+            },
+            {
+                id: 4,
+                weekLabel: 'สัปดาห์ที่ 4',
+                examPeriod: 'MIDTERM',
+                title: 'อนุพันธ์ของฟังก์ชันตรีโกณมิติและตรีโกณมิติผกผัน อนุพันธ์โดยปริยาย ค่าเชิงอนุพันธ์',
+                bookRef: 'หนังสือ บทที่ 2: หัวข้อ 2.4–2.6',
+                tips: [
+                    '<b>จำเครื่องหมายอนุพันธ์ตรีโกณฯ:</b> ฟังก์ชันที่ขึ้นต้นด้วยตัว <b>"c"</b> ($\cos, \cot, \csc, \arccos, \text{arccot}, \text{arccsc}$) เมื่อดิฟแล้วจะติดเครื่องหมาย <b>ลบ ($-$)</b> เสมอ',
+                    '<b>อนุพันธ์โดยปริยาย (Implicit Differentiation):</b> ดิฟเทียบ $x$ ตลอดสมการ ทุกครั้งที่ดิฟพจน์ที่มี $y$ ให้คูณ $\\frac{dy}{dx}$ ต่อท้ายเสมอ จากนั้นย้ายข้างดึงตัวร่วม $\\frac{dy}{dx}$',
+                    '<b>ค่าเชิงอนุพันธ์ (Differential):</b> ใช้ประมาณค่า $f(a + \\Delta x) \\approx f(a) + f\'(a)\\,dx$ โดยเลือกจุด $a$ ที่ใกล้เคียงและคำนวณง่าย'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 2.4.5 (อนุพันธ์ฟังก์ชันตรีโกณมิติผกผัน)',
+                        problem: 'จงหาอนุพันธ์ของ $y = \\arctan(3x^2) + \\arcsin(2x)$',
+                        solution: `ใช้สูตร $(\\arctan u)' = \\frac{u'}{1+u^2}$ และ $(\\arcsin u)' = \\frac{u'}{\\sqrt{1-u^2}}$:
+                        $$\\frac{dy}{dx} = \\frac{6x}{1 + (3x^2)^2} + \\frac{2}{\\sqrt{1 - (2x)^2}} = \\frac{6x}{1 + 9x^4} + \\frac{2}{\\sqrt{1 - 4x^2}}$$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 2.4.6 (การหาอนุพันธ์โดยปริยาย)',
+                        problem: 'จงหา $\\frac{dy}{dx}$ จากสมการ $x^3 + y^3 = 6xy$',
+                        solution: `ดิฟเทียบ $x$ ทั้งสองข้าง (ใช้กฎผลคูณกับ $6xy$):
+                        $$\\begin{aligned}
+                        3x^2 + 3y^2\\frac{dy}{dx} &= 6\\left(x\\frac{dy}{dx} + y(1)\\right) \\\\
+                        (3y^2 - 6x)\\frac{dy}{dx} &= 6y - 3x^2 \\\\
+                        \\frac{dy}{dx} &= \\frac{6y - 3x^2}{3y^2 - 6x} = \\frac{2y - x^2}{y^2 - 2x}
+                        \\end{aligned}$$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-4-1',
+                        ref: 'แบบฝึกหัด 2.4 ข้อ 1',
+                        question: 'จงหาอนุพันธ์ของ $y = \\sin^3(4x)$',
+                        answer: '$12\\sin^2(4x)\\cos(4x)$',
+                        solution: `ดิฟ 3 ชั้น (ยกกำลัง 3 $\\to \\sin \\to 4x$):
+                        $$\\frac{dy}{dx} = 3\\sin^2(4x) \\cdot \\cos(4x) \\cdot 4 = 12\\sin^2(4x)\\cos(4x)$$`
+                    },
+                    {
+                        id: 'ex-4-2',
+                        ref: 'แบบฝึกหัด 2.6 ข้อ 2',
+                        question: 'จงใช้ค่าเชิงอนุพันธ์ประมาณค่าของ $\\sqrt{25.4}$',
+                        answer: '$5.04$',
+                        solution: `ให้ $f(x) = \\sqrt{x}$, เลือก $a = 25$ และ $dx = \\Delta x = 0.4$
+                        จะได้ $f'(x) = \\frac{1}{2\\sqrt{x}} \\implies f'(25) = \\frac{1}{2(5)} = 0.1$
+                        ดังนั้น $\\sqrt{25.4} \\approx f(25) + f'(25)\\,dx = 5 + (0.1)(0.4) = 5.04$`
+                    }
+                ]
+            },
+            {
+                id: 5,
+                weekLabel: 'สัปดาห์ที่ 5',
+                examPeriod: 'MIDTERM',
+                title: 'ปฏิยานุพันธ์ อินทิกรัลไม่จำกัดเขต การแทนค่าตัวแปร อินทิกรัลจำกัดเขต',
+                bookRef: 'หนังสือ บทที่ 3: หัวข้อ 3.1, 3.3',
+                tips: [
+                    '<b>อินทิกรัลไม่จำกัดเขต</b> ต้องบวกค่าคงที่ $+ C$ เสมอ แต่ <b>อินทิกรัลจำกัดเขต</b> ผลลัพธ์เป็นตัวเลขไม่ต้องใส่ $+ C$',
+                    '<b>เทคนิคการแทนค่าตัวแปร (u-Substitution):</b> มองหา $u$ ที่เมื่อดิฟแล้วได้ $du$ ไปตัดกับพจน์ที่เหลือในโจทย์พอดี และ <b>อย่าลืมเปลี่ยนขอบเขตอินทิเกรต</b> เมื่อเป็นอินทิกรัลจำกัดเขต!'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 3.1 & 3.3 (การอินทิเกรตโดยการแทนค่าตัวแปร)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\int_0^1 x(x^2 + 1)^3\\,dx$',
+                        solution: `ให้ $u = x^2 + 1 \\implies du = 2x\\,dx \\implies x\\,dx = \\frac{du}{2}$
+                        เปลี่ยนขอบเขต: เมื่อ $x = 0 \\Rightarrow u = 1$ และเมื่อ $x = 1 \\Rightarrow u = 2$
+                        $$\\int_0^1 x(x^2 + 1)^3\\,dx = \\frac{1}{2} \\int_1^2 u^3\\,du = \\frac{1}{2}\\left[\\frac{u^4}{4}\\right]_1^2 = \\frac{1}{8}(16 - 1) = \\frac{15}{8}$$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-5-1',
+                        ref: 'แบบฝึกหัด 3.1 ข้อ 1',
+                        question: 'จงหาค่าของ $\\displaystyle \\int \\frac{\\cos\\sqrt{x}}{\\sqrt{x}}\\,dx$',
+                        answer: '$2\\sin\\sqrt{x} + C$',
+                        solution: `ให้ $u = \\sqrt{x} = x^{1/2} \\implies du = \\frac{1}{2\\sqrt{x}}\\,dx \\implies \\frac{dx}{\\sqrt{x}} = 2\\,du$
+                        $$\\int \\cos u \\cdot (2\\,du) = 2\\sin u + C = 2\\sin\\sqrt{x} + C$$`
+                    },
+                    {
+                        id: 'ex-5-2',
+                        ref: 'แบบฝึกหัด 3.3 ข้อ 2',
+                        question: 'จงหาค่าของ $\\displaystyle \\int_0^{\\pi/4} \\sec^2 x \\tan x\\,dx$',
+                        answer: '$\\frac{1}{2}$',
+                        solution: `ให้ $u = \\tan x \\implies du = \\sec^2 x\\,dx$
+                        เปลี่ยนขอบเขต: $x = 0 \\Rightarrow u = 0$, $x = \\frac{\\pi}{4} \\Rightarrow u = 1$
+                        $$\\int_0^1 u\\,du = \\left[\\frac{u^2}{2}\\right]_0^1 = \\frac{1}{2}$$`
+                    }
+                ]
+            },
+            {
+                id: 6,
+                weekLabel: 'สัปดาห์ที่ 6',
+                examPeriod: 'MIDTERM',
+                title: 'ทฤษฎีบทหลักมูลของแคลคูลัส 1 และ 2 ฟังก์ชันลอการิทึมธรรมชาติ และเลขชี้กำลังธรรมชาติ',
+                bookRef: 'หนังสือ บทที่ 3: หัวข้อ 3.4 & บทที่ 4: หัวข้อ 4.1–4.2',
+                tips: [
+                    '<b>ทฤษฎีบทหลักมูลฯ ข้อ 1 (ดิฟอินทิกรัล):</b> $\\frac{d}{dx} \\int_{g(x)}^{h(x)} f(t)\\,dt = f(h(x))h\'(x) - f(g(x))g\'(x)$ ห้ามอินทิเกรตออกมาก่อน ให้แทนค่าตัวแปรบน/ล่างแล้วคูณดิฟไส้ทันที!',
+                    '<b>Logarithmic Differentiation:</b> ใช้เมื่อฐานและเลขชี้กำลังเป็นตัวแปรทั้งคู่ เช่น $y = x^{\\sin x}$ ให้ใส่ $\\ln$ ทั้งสองข้างก่อนแล้วค่อยดิฟ'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 3.4 (ทฤษฎีบทหลักมูลของแคลคูลัส ข้อที่ 1)',
+                        problem: 'จงหาอนุพันธ์ของ $F(x) = \\displaystyle \\int_{2x}^{x^3} \\sqrt{t^2 + 1}\\,dt$',
+                        solution: `ใช้ทฤษฎีบทหลักมูลฯ ข้อที่ 1 ร่วมกับกฎลูกโซ่:
+                        $$\\begin{aligned}
+                        F'(x) &= \\sqrt{(x^3)^2 + 1} \\cdot \\frac{d}{dx}(x^3) - \\sqrt{(2x)^2 + 1} \\cdot \\frac{d}{dx}(2x) \\\\
+                        &= 3x^2\\sqrt{x^6 + 1} - 2\\sqrt{4x^2 + 1}
+                        \\end{aligned}$$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 4.1–4.2 (Logarithmic Differentiation)',
+                        problem: 'จงหา $\\frac{dy}{dx}$ เมื่อ $y = x^{\\cos x}$ (เมื่อ $x > 0$)',
+                        solution: `ใส่ $\\ln$ ทั้งสองข้าง: $\\ln y = \\cos x \\cdot \\ln x$
+                        ดิฟเทียบ $x$ ทั้งสองข้าง:
+                        $$\\frac{1}{y}\\frac{dy}{dx} = \\cos x \\left(\\frac{1}{x}\\right) + (\\ln x)(-\\sin x)$$
+                        $$\\frac{dy}{dx} = x^{\\cos x}\\left(\\frac{\\cos x}{x} - \\sin x \\ln x\\right)$$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-6-1',
+                        ref: 'แบบฝึกหัด 3.4 ข้อ 1',
+                        question: 'จงหา $\\displaystyle \\frac{d}{dx} \\int_1^{x^2} \\frac{\\sin t}{t}\\,dt$',
+                        answer: '$\\frac{2\\sin(x^2)}{x}$',
+                        solution: `$$\\frac{d}{dx} \\int_1^{x^2} \\frac{\\sin t}{t}\\,dt = \\frac{\\sin(x^2)}{x^2} \\cdot (2x) = \\frac{2\\sin(x^2)}{x}$$`
+                    },
+                    {
+                        id: 'ex-6-2',
+                        ref: 'แบบฝึกหัด 4.1 ข้อ 2',
+                        question: 'จงหาค่าของ $\\displaystyle \\int \\frac{2x + 3}{x^2 + 3x - 5}\\,dx$',
+                        answer: '$\\ln|x^2 + 3x - 5| + C$',
+                        solution: `สังเกตว่าตัวเศษ $(2x+3)\\,dx$ คืออนุพันธ์ของตัวส่วน $u = x^2 + 3x - 5$ พอดี:
+                        $$\\int \\frac{du}{u} = \\ln|u| + C = \\ln|x^2 + 3x - 5| + C$$`
+                    }
+                ]
+            },
+            {
+                id: 7,
+                weekLabel: 'สัปดาห์ที่ 7',
+                examPeriod: 'MIDTERM',
+                title: 'ฟังก์ชันเลขชี้กำลัง ลอการิทึม ตรีโกณมิติ และตรีโกณมิติผกผัน (การอินทิเกรตและอนุพันธ์)',
+                bookRef: 'หนังสือ บทที่ 4: หัวข้อ 4.2–4.4',
+                tips: [
+                    '<b>แยกให้ออกระหว่าง 2 สูตรยอดฮิตในข้อสอบ:</b><br>1) $\\int \\frac{x}{x^2 + a^2}\\,dx$ $\\to$ ตัวเศษมี $x$ (ดีกรีต่ำกว่าส่วน 1 ขั้น) ใช้แทนค่า $u = x^2+a^2$ ตอบ $\\frac{1}{2}\\ln(x^2+a^2) + C$<br>2) $\\int \\frac{1}{x^2 + a^2}\\,dx$ $\\to$ ตัวเศษเป็นค่าคงที่ ใช้สูตรตรีโกณผกผัน ตอบ $\\frac{1}{a}\\arctan\\frac{x}{a} + C$',
+                    'หากตัวส่วนเป็นพหุนามกำลังสอง $ax^2 + bx + c$ ที่แยกตัวประกอบไม่ได้ ให้ <b>ทำเป็นกำลังสองสมบูรณ์</b> ก่อนเข้าสูตร $\\arcsin$ หรือ $\\arctan$'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 4.4 (การอินทิเกรตโดยจัดรูปกำลังสองสมบูรณ์)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\int \\frac{dx}{x^2 + 4x + 13}$',
+                        solution: `จัดตัวส่วนเป็นกำลังสองสมบูรณ์: $x^2 + 4x + 13 = (x^2 + 4x + 4) + 9 = (x + 2)^2 + 3^2$
+                        ให้ $u = x + 2 \\implies du = dx$ และ $a = 3$:
+                        $$\\int \\frac{dx}{(x+2)^2 + 3^2} = \\frac{1}{3}\\arctan\\left(\\frac{x+2}{3}\\right) + C$$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-7-1',
+                        ref: 'แบบฝึกหัด 4.3 ข้อ 1',
+                        question: 'จงหาค่าของ $\\displaystyle \\int \\frac{e^x}{1 + e^{2x}}\\,dx$',
+                        answer: '$\\arctan(e^x) + C$',
+                        solution: `เขียน $e^{2x} = (e^x)^2$ แล้วให้ $u = e^x \\implies du = e^x\\,dx$:
+                        $$\\int \\frac{du}{1 + u^2} = \\arctan u + C = \\arctan(e^x) + C$$`
+                    },
+                    {
+                        id: 'ex-7-2',
+                        ref: 'แบบฝึกหัด 4.4 ข้อ 2',
+                        question: 'จงหาค่าของ $\\displaystyle \\int \\frac{dx}{\\sqrt{9 - 4x^2}}$',
+                        answer: '$\\frac{1}{2}\\arcsin\\left(\\frac{2x}{3}\\right) + C$',
+                        solution: `เขียน $\\sqrt{3^2 - (2x)^2}$ ให้ $u = 2x \\implies du = 2\\,dx \\implies dx = \\frac{du}{2}$ และ $a = 3$:
+                        $$\\frac{1}{2} \\int \\frac{du}{\\sqrt{3^2 - u^2}} = \\frac{1}{2}\\arcsin\\left(\\frac{2x}{3}\\right) + C$$`
+                    }
+                ]
+            },
+            {
+                id: 8,
+                weekLabel: 'สัปดาห์ที่ 9–10',
+                examPeriod: 'FINAL',
+                title: 'การประยุกต์ของอนุพันธ์ในการหาค่าสุดขีด ความเว้าและจุดเปลี่ยนเว้า การร่างกราฟ',
+                bookRef: 'หนังสือ บทที่ 5: หัวข้อ 5.1–5.3',
+                tips: [
+                    '<b>ค่าวิกฤต (Critical Number):</b> คือค่า $c$ ในโดเมนของ $f$ ที่ทำให้ $f\'(c) = 0$ หรือ $f\'(c)$ หาค่าไม่ได้',
+                    '<b>ค่าสุดขีดสัมบูรณ์บนช่วงปิด $[a, b]$:</b> หาค่าวิกฤตใน $(a, b)$ แล้วนำมาเปรียบเทียบค่า $f(x)$ กับจุดปลายขอบ $f(a)$ และ $f(b)$ ตัวที่มากที่สุดคือสูงสุดสัมบูรณ์',
+                    '<b>จุดเปลี่ยนเว้า (Inflection Point):</b> จุด $(c, f(c))$ ที่ฟังก์ชันต่อเนื่องและ <b>ความเว้าเปลี่ยนเครื่องหมาย</b> (เช็กจากเครื่องหมายของ $f\'\'(x)$ รอบจุดที่ $f\'\'(c) = 0$ หรือหาค่าไม่ได้)'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 5.1–5.3 (การวิเคราะห์ฟังก์ชันและร่างกราฟครบขั้นตอน)',
+                        problem: 'กำหนด $f(x) = x^3 - 3x^2 - 9x + 5$ จงหาช่วงเพิ่ม/ลด ค่าสุดขีดสัมพัทธ์ ช่วงเว้าบน/ล่าง และจุดเปลี่ยนเว้า',
+                        solution: `1) หา $f'(x) = 3x^2 - 6x - 9 = 3(x - 3)(x + 1) = 0 \\implies$ ค่าวิกฤต $x = -1, 3$
+                        - ช่วงเพิ่ม: $(-\\infty, -1) \\cup (3, \\infty)$ | ช่วงลด: $(-1, 3)$
+                        - ค่าสูงสุดสัมพัทธ์ที่ $x = -1$ คือ $f(-1) = 10$
+                        - ค่าต่ำสุดสัมพัทธ์ที่ $x = 3$ คือ $f(3) = -22$
+                        2) หา $f''(x) = 6x - 6 = 6(x - 1) = 0 \\implies x = 1$
+                        - ช่วงเว้าล่าง ($f'' < 0$): $(-\\infty, 1)$ | ช่วงเว้าบน ($f'' > 0$): $(1, \\infty)$
+                        - จุดเปลี่ยนเว้า: $(1, f(1)) = (1, -6)$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-8-1',
+                        ref: 'แบบฝึกหัด 5.1 ข้อ 1',
+                        question: 'จงหาค่าสูงสุดสัมบูรณ์และต่ำสุดสัมบูรณ์ของ $f(x) = x^3 - 12x + 1$ บนช่วงปิด $[-3, 5]$',
+                        answer: 'สูงสุดสัมบูรณ์ $= 66$, ต่ำสุดสัมบูรณ์ $= -15$',
+                        solution: `หาค่าวิกฤต: $f'(x) = 3x^2 - 12 = 0 \\implies x = \\pm 2$ (อยู่ใน $[-3, 5]$ ทั้งคู่)
+                        คำนวณค่า $f$: $f(-3) = 10$, $f(-2) = 17$, $f(2) = -15$, $f(5) = 66$
+                        ดังนั้น สูงสุดสัมบูรณ์คือ $66$ (ที่ $x=5$) และต่ำสุดสัมบูรณ์คือ $-15$ (ที่ $x=2$)`
+                    },
+                    {
+                        id: 'ex-8-2',
+                        ref: 'แบบฝึกหัด 5.2 ข้อ 2',
+                        question: 'จงหาพิกัดจุดเปลี่ยนเว้าทั้งหมดของกราฟ $f(x) = x^4 - 6x^2 + 4$',
+                        answer: '$(-1, -1)$ และ $(1, -1)$',
+                        solution: `$f'(x) = 4x^3 - 12x$, $f''(x) = 12x^2 - 12 = 12(x - 1)(x + 1) = 0 \\implies x = \\pm 1$
+                        ตรวจสอบเครื่องหมาย $f''$: บน $(-\\infty, -1)$ เป็น $+$, บน $(-1, 1)$ เป็น $-$, บน $(1, \\infty)$ เป็น $+$ (เปลี่ยนเครื่องหมายทั้งสองจุด)
+                        แทนค่า $f(-1) = -1$ และ $f(1) = -1$ ได้จุดเปลี่ยนเว้าคือ $(-1, -1)$ และ $(1, -1)$`
+                    }
+                ]
+            },
+            {
+                id: 9,
+                weekLabel: 'สัปดาห์ที่ 11',
+                examPeriod: 'FINAL',
+                title: 'อัตราสัมพัทธ์ กฎของโลปิตาลและรูปแบบไม่กำหนด',
+                bookRef: 'หนังสือ บทที่ 5: หัวข้อ 5.4–5.5',
+                tips: [
+                    '<b>โจทย์อัตราสัมพัทธ์ (Related Rates):</b> สร้างสมการความสัมพันธ์ของตัวแปรก่อน ดิฟเทียบเวลา $t$ ($\\frac{d}{dt}$) <b>ห้ามแทนค่าตัวเลขที่กำลังเปลี่ยนแปลงก่อนดิฟเด็ดขาด!</b>',
+                    '<b>กฎของโลปิตาล (L\'Hôpital\'s Rule):</b> ใช้ได้เฉพาะรูปแบบ $\\frac{0}{0}$ และ $\\frac{\\infty}{\\infty}$ เท่านั้น และ <b>ต้องดิฟเศษแยกกับดิฟส่วน</b> (ห้ามใช้กฎผลหาร!)',
+                    'รูปแบบเลขยกกำลัง $1^\\infty, 0^0, \\infty^0$ ให้สมมติ $y = f(x)^{g(x)}$ แล้วใส่ $\\ln y$ เพื่อแปลงเป็นรูปแบบเศษส่วนก่อนใช้โลปิตาล'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 5.4 (อัตราสัมพัทธ์ - บันไดไถล)',
+                        problem: 'บันไดยาว $10$ เมตร พิงกำแพงตั้งฉากกับพื้น หากปลายล่างไถลออกจากกำแพงด้วยอัตรา $2\\text{ m/s}$ จงหาอัตราเร็วที่ปลายบนเลื่อนลงในขณะที่ปลายล่างอยู่ห่างกำแพง $6$ เมตร',
+                        solution: `ให้ $x$ คือระยะปลายล่างถึงกำแพง และ $y$ คือความสูงปลายบน จะได้ $x^2 + y^2 = 10^2$
+                        เมื่อ $x = 6 \\implies y = \\sqrt{100 - 36} = 8$ และโจทย์ให้ $\\frac{dx}{dt} = 2$
+                        ดิฟสมการเทียบ $t$:
+                        $$2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0 \\implies 6(2) + 8\\frac{dy}{dt} = 0 \\implies \\frac{dy}{dt} = -1.5\\text{ m/s}$$
+                        ดังนั้นปลายบนเลื่อนลงด้วยอัตรา $1.5$ เมตร/วินาที`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 5.5 (กฎของโลปิตาลรูปแบบ $1^\\infty$)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\lim_{x \\to 0^+} (1 + 3x)^{2/x}$',
+                        solution: `อยู่ในรูปแบบ $1^\\infty$ ให้ $y = (1 + 3x)^{2/x} \\implies \\ln y = \\frac{2\\ln(1 + 3x)}{x}$ (รูปแบบ $\\frac{0}{0}$)
+                        ใช้กฎของโลปิตาล:
+                        $$\\lim_{x \\to 0^+} \\ln y = \\lim_{x \\to 0^+} \\frac{2 \\cdot \\frac{3}{1+3x}}{1} = 6$$
+                        ดังนั้น $\\displaystyle \\lim_{x \\to 0^+} y = e^6$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-9-1',
+                        ref: 'แบบฝึกหัด 5.4 ข้อ 1',
+                        question: 'สูบลมเข้าลูกโป่งทรงกลมด้วยอัตรา $100\\text{ cm}^3/\\text{s}$ จงหาอัตราการเพิ่มของรัศมีเมื่อรัศมียาว $5\\text{ cm}$ ($V = \\frac{4}{3}\\pi r^3$)',
+                        answer: '$\\frac{1}{\\pi}\\text{ cm/s}$',
+                        solution: `ดิฟ $V = \\frac{4}{3}\\pi r^3$ เทียบ $t$: $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$
+                        แทนค่า $\\frac{dV}{dt} = 100$ และ $r = 5$: $100 = 4\\pi(5)^2 \\frac{dr}{dt} \\implies \\frac{dr}{dt} = \\frac{100}{100\\pi} = \\frac{1}{\\pi}\\text{ cm/s}$`
+                    },
+                    {
+                        id: 'ex-9-2',
+                        ref: 'แบบฝึกหัด 5.5 ข้อ 2',
+                        question: 'จงหาค่าของ $\\displaystyle \\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2}$',
+                        answer: '$\\frac{1}{2}$',
+                        solution: `รูปแบบ $\\frac{0}{0}$ ใช้โลปิตาล 2 ครั้ง:
+                        $$\\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2} \\overset{\\text{L\'H}}{=} \\lim_{x \\to 0} \\frac{e^x - 1}{2x} \\overset{\\text{L\'H}}{=} \\lim_{x \\to 0} \\frac{e^x}{2} = \\frac{1}{2}$$`
+                    }
+                ]
+            },
+            {
+                id: 10,
+                weekLabel: 'สัปดาห์ที่ 12',
+                examPeriod: 'FINAL',
+                title: 'การอินทิเกรตทีละส่วน และการอินทิเกรตโดยการแยกเป็นเศษส่วนย่อย',
+                bookRef: 'หนังสือ บทที่ 6: หัวข้อ 6.1–6.2',
+                tips: [
+                    '<b>หลักการเลือก $u$ ใน By Parts (LIATE):</b> เรียงลำดับความสำคัญจาก <b>L</b>ogarithmic ($\\ln x$) $\\to$ <b>I</b>nverse trig ($\\arctan x$) $\\to$ <b>A</b>lgebraic ($x^n$) $\\to$ <b>T</b>rigonometric ($\\sin x$) $\\to$ <b>E</b>xponential ($e^x$)',
+                    '<b>เศษส่วนย่อย (Partial Fractions):</b> หากดีกรีตัวเศษ $\\ge$ ดีกรีตัวส่วน <b>ต้องตั้งหารยาวพหุนามก่อนเสมอ!</b> จากนั้นแยกตัวประกอบตัวส่วนและสมมติค่าคงที่ตามรูปแบบตัวประกอบ (เชิงเส้นไม่ซ้ำ, เชิงเส้นซ้ำ, กำลังสองแยกไม่ได้)'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 6.1 (การอินทิเกรตทีละส่วน - Integration by Parts)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\int x e^{2x}\\,dx$',
+                        solution: `ตามหลัก LIATE เลือก $u = x$ (Algebraic) และ $dv = e^{2x}\\,dx$ (Exponential)
+                        จะได้ $du = dx$ และ $v = \\frac{1}{2}e^{2x}$
+                        $$\\int x e^{2x}\\,dx = uv - \\int v\\,du = \\frac{1}{2}x e^{2x} - \\int \\frac{1}{2}e^{2x}\\,dx = \\frac{1}{2}x e^{2x} - \\frac{1}{4}e^{2x} + C$$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 6.2 (การอินทิเกรตโดยการแยกเป็นเศษส่วนย่อย)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\int \\frac{5x - 3}{(x - 1)(x + 3)}\\,dx$',
+                        solution: `แยกเศษส่วนย่อย: $\\frac{5x - 3}{(x - 1)(x + 3)} = \\frac{A}{x - 1} + \\frac{B}{x + 3} \\implies 5x - 3 = A(x + 3) + B(x - 1)$
+                        - แทน $x = 1$: $2 = 4A \\implies A = \\frac{1}{2}$
+                        - แทน $x = -3$: $-18 = -4B \\implies B = \\frac{9}{2}$
+                        $$\\int \\left(\\frac{1/2}{x - 1} + \\frac{9/2}{x + 3}\\right)dx = \\frac{1}{2}\\ln|x - 1| + \\frac{9}{2}\\ln|x + 3| + C$$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-10-1',
+                        ref: 'แบบฝึกหัด 6.1 ข้อ 1',
+                        question: 'จงหาค่าของ $\\displaystyle \\int x \\ln x\\,dx$',
+                        answer: '$\\frac{1}{2}x^2 \\ln x - \\frac{1}{4}x^2 + C$',
+                        solution: `เลือก $u = \\ln x \\implies du = \\frac{1}{x}\\,dx$ และ $dv = x\\,dx \\implies v = \\frac{1}{2}x^2$
+                        $$\\int x \\ln x\\,dx = \\frac{1}{2}x^2 \\ln x - \\int \\frac{1}{2}x^2 \\cdot \\frac{1}{x}\\,dx = \\frac{1}{2}x^2 \\ln x - \\frac{1}{4}x^2 + C$$`
+                    },
+                    {
+                        id: 'ex-10-2',
+                        ref: 'แบบฝึกหัด 6.2 ข้อ 2',
+                        question: 'จงหาค่าของ $\\displaystyle \\int \\frac{1}{x^2 - 4}\\,dx$',
+                        answer: '$\\frac{1}{4}\\ln\\left|\\frac{x-2}{x+2}\\right| + C$',
+                        solution: `$\\frac{1}{(x-2)(x+2)} = \\frac{1/4}{x-2} - \\frac{1/4}{x+2}$
+                        $$\\int \\left(\\frac{1/4}{x-2} - \\frac{1/4}{x+2}\\right)dx = \\frac{1}{4}\\ln|x-2| - \\frac{1}{4}\\ln|x+2| + C = \\frac{1}{4}\\ln\\left|\\frac{x-2}{x+2}\\right| + C$$`
+                    }
+                ]
+            },
+            {
+                id: 11,
+                weekLabel: 'สัปดาห์ที่ 13',
+                examPeriod: 'FINAL',
+                title: 'การอินทิเกรตฟังก์ชันตรีโกณมิติที่ยกกำลัง และการแทนค่าด้วยฟังก์ชันตรีโกณมิติ',
+                bookRef: 'หนังสือ บทที่ 6: หัวข้อ 6.3–6.4, 6.8',
+                tips: [
+                    '<b>กลุ่ม $\\int \\sin^m x \\cos^n x\\,dx$:</b> ถ้าตัวใดยกกำลัง <b>คี่</b> ให้ดึงออกมา 1 ตัวไว้คู่กับ $dx$ เพื่อทำเป็น $du$ ส่วนที่เหลือแปลงด้วย $\\sin^2 x + \\cos^2 x = 1$ แต่ถ้ากำลังเป็น <b>คู่ทั้งคู่</b> ให้ลดกำลังด้วยสูตรมุมครึ่งเท่า',
+                    '<b>กลุ่ม $\\int \\tan^m x \\sec^n x\\,dx$:</b> ถ้า $\\sec$ กำลัง <b>คู่</b> ให้เก็บ $\\sec^2 x\\,dx$ ไว้เป็น $du$ (โดยให้ $u = \\tan x$) แต่ถ้า $\\tan$ กำลัง <b>คี่</b> ให้เก็บ $\\sec x \\tan x\\,dx$ ไว้เป็น $du$ (โดยให้ $u = \\sec x$)',
+                    '<b>Trig Substitution:</b> เมื่ออินทิเกรตเสร็จแล้ว <b>ต้องวาดรูปสามเหลี่ยมมุมฉาก</b> เพื่อแปลงตัวแปร $\\theta$ กลับเป็นตัวแปร $x$ เสมอ'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 6.3 (การอินทิเกรตฟังก์ชันตรีโกณมิติยกกำลัง)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\int \\sin^3 x \\cos^2 x\\,dx$',
+                        solution: `ดึง $\\sin x$ ออกมา 1 ตัวไว้คู่ $dx$ และเปลี่ยน $\\sin^2 x = 1 - \\cos^2 x$:
+                        $$\\begin{aligned}
+                        \\int (1 - \\cos^2 x)\\cos^2 x \\sin x\\,dx &= -\\int (1 - u^2)u^2\\,du \\quad (u = \\cos x,\\; du = -\\sin x\\,dx) \\\\
+                        &= -\\int (u^2 - u^4)\\,du = -\\frac{u^3}{3} + \\frac{u^5}{5} + C = -\\frac{\\cos^3 x}{3} + \\frac{\\cos^5 x}{5} + C
+                        \\end{aligned}$$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 6.4 (การแทนค่าด้วยฟังก์ชันตรีโกณมิติ)',
+                        problem: 'จงหาค่าของ $\\displaystyle \\int \\frac{dx}{x^2\\sqrt{4 - x^2}}$',
+                        solution: `อยู่ในรูป $\\sqrt{a^2 - x^2}$ ($a = 2$) ให้ $x = 2\\sin\\theta \\implies dx = 2\\cos\\theta\\,d\\theta$ และ $\\sqrt{4 - x^2} = 2\\cos\\theta$:
+                        $$\\int \\frac{2\\cos\\theta\\,d\\theta}{(4\\sin^2\\theta)(2\\cos\\theta)} = \\frac{1}{4}\\int \\csc^2\\theta\\,d\\theta = -\\frac{1}{4}\\cot\\theta + C$$
+                        จาก $\\sin\\theta = \\frac{x}{2}$ วาดสามเหลี่ยมมุมฉากจะได้ $\\cot\\theta = \\frac{\\sqrt{4 - x^2}}{x}$ ดังนั้นคำตอบคือ $-\\frac{\\sqrt{4 - x^2}}{4x} + C$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-11-1',
+                        ref: 'แบบฝึกหัด 6.3 ข้อ 1',
+                        question: 'จงหาค่าของ $\\displaystyle \\int \\tan^3 x \\sec^4 x\\,dx$',
+                        answer: '$\\frac{1}{4}\\tan^4 x + \\frac{1}{6}\\tan^6 x + C$',
+                        solution: `เก็บ $\\sec^2 x\\,dx$ ไว้เป็น $du$ และเปลี่ยน $\\sec^2 x = 1 + \\tan^2 x$ (ให้ $u = \\tan x$):
+                        $$\\int \\tan^3 x (1 + \\tan^2 x)\\sec^2 x\\,dx = \\int (u^3 + u^5)\\,du = \\frac{1}{4}\\tan^4 x + \\frac{1}{6}\\tan^6 x + C$$`
+                    },
+                    {
+                        id: 'ex-11-2',
+                        ref: 'แบบฝึกหัด 6.4 ข้อ 2',
+                        question: 'จงหาค่าของ $\\displaystyle \\int \\frac{dx}{(x^2 + 9)^{3/2}}$',
+                        answer: '$\\frac{x}{9\\sqrt{x^2 + 9}} + C$',
+                        solution: `ให้ $x = 3\\tan\\theta \\implies dx = 3\\sec^2\\theta\\,d\\theta$ และ $(x^2+9)^{3/2} = 27\\sec^3\\theta$:
+                        $$\\int \\frac{3\\sec^2\\theta\\,d\\theta}{27\\sec^3\\theta} = \\frac{1}{9}\\int \\cos\\theta\\,d\\theta = \\frac{1}{9}\\sin\\theta + C = \\frac{x}{9\\sqrt{x^2 + 9}} + C$$`
+                    }
+                ]
+            },
+            {
+                id: 12,
+                weekLabel: 'สัปดาห์ที่ 14',
+                examPeriod: 'FINAL',
+                title: 'พื้นที่ระหว่างเส้นโค้ง และปริมาตรของรูปทรงตันซึ่งหาพื้นที่ภาคตัดได้',
+                bookRef: 'หนังสือ บทที่ 7: หัวข้อ 7.1–7.2',
+                tips: [
+                    '<b>พื้นที่ระหว่างเส้นโค้ง:</b> วาดกราฟคร่าวๆ เพื่อดูว่าเส้นไหนอยู่บน/ล่าง (อินทิเกรตเทียบ $x$) หรือเส้นไหนอยู่ขวา/ซ้าย (อินทิเกรตเทียบ $y$) และหาจุดตัดเพื่อเป็นขอบเขตอินทิเกรต',
+                    '<b>ปริมาตรภาคตัดขวาง (Slicing Method):</b> ตั้งแกนให้ตั้งฉากกับหน้าตัด หากหน้าตัดตั้งฉากแกน $x$ ให้หาสูตรพื้นที่หน้าตัด $A(x)$ ในรูปตัวแปร $x$ แล้วอินทิเกรต $\\int_a^b A(x)\\,dx$'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 7.1 (พื้นที่ระหว่างเส้นโค้ง)',
+                        problem: 'จงหาพื้นที่ของอาณาบริเวณที่ปิดล้อมด้วยเส้นโค้ง $y = x^2$ และเส้นตรง $y = 2x + 3$',
+                        solution: `หาจุดตัด: $x^2 = 2x + 3 \\implies x^2 - 2x - 3 = 0 \\implies (x - 3)(x + 1) = 0 \\implies x = -1, 3$
+                        บนช่วง $[-1, 3]$ เส้นตรง $y = 2x + 3$ อยู่เหนือพาราโบลา $y = x^2$:
+                        $$A = \\int_{-1}^3 [(2x + 3) - x^2]\\,dx = \\left[x^2 + 3x - \\frac{x^3}{3}\\right]_{-1}^3 = (9 + 9 - 9) - \\left(1 - 3 + \\frac{1}{3}\\right) = \\frac{32}{3}$$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 7.2 (ปริมาตรจากพื้นที่ภาคตัดขวาง)',
+                        problem: 'รูปทรงตันมีฐานเป็นวงกลม $x^2 + y^2 = 4$ และหน้าตัดที่ตั้งฉากกับแกน $x$ ทุกหน้าเป็นรูปสี่เหลี่ยมจัตุรัส จงหาปริมาตรของรูปทรงตันนี้',
+                        solution: `ที่ตำแหน่ง $x$ ใดๆ ใน $[-2, 2]$ ความยาวด้านของสี่เหลี่ยมจัตุรัสคือ $s = 2y = 2\\sqrt{4 - x^2}$
+                        ดังนั้นพื้นที่หน้าตัดคือ $A(x) = s^2 = 4(4 - x^2)$
+                        $$V = \\int_{-2}^2 4(4 - x^2)\\,dx = 8\\int_0^2 (4 - x^2)\\,dx = 8\\left[4x - \\frac{x^3}{3}\\right]_0^2 = 8\\left(8 - \\frac{8}{3}\\right) = \\frac{128}{3}$$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-12-1',
+                        ref: 'แบบฝึกหัด 7.1 ข้อ 1',
+                        question: 'จงหาพื้นที่บริเวณที่ปิดล้อมด้วยพาราโบลา $x = y^2$ และเส้นตรง $x = y + 2$',
+                        answer: '$\\frac{9}{2}$',
+                        solution: `หาจุดตัด: $y^2 = y + 2 \\implies (y - 2)(y + 1) = 0 \\implies y = -1, 2$
+                        อินทิเกรตเทียบ $y$ (ขวา $-$ ซ้าย):
+                        $$A = \\int_{-1}^2 [(y + 2) - y^2]\\,dy = \\left[\\frac{y^2}{2} + 2y - \\frac{y^3}{3}\\right]_{-1}^2 = \\left(2 + 4 - \\frac{8}{3}\\right) - \\left(\\frac{1}{2} - 2 + \\frac{1}{3}\\right) = \\frac{9}{2}$$`
+                    },
+                    {
+                        id: 'ex-12-2',
+                        ref: 'แบบฝึกหัด 7.2 ข้อ 2',
+                        question: 'พีระมิดสูง $h$ ฐานสี่เหลี่ยมจัตุรัสยาวด้านละ $a$ จงใช้การอินทิเกรตแสดงว่าปริมาตรคือ $\\frac{1}{3}a^2h$',
+                        answer: '$\\frac{1}{3}a^2h$',
+                        solution: `วางยอดพีระมิดที่จุดกำเนิด $(0,0)$ สูงตามแกน $x$ ถึง $x = h$ โดยสามเหลี่ยมคล้าย ความยาวด้านหน้าตัดที่ระยะ $x$ คือ $s(x) = \\frac{a}{h}x$
+                        พื้นที่หน้าตัด $A(x) = \\frac{a^2}{h^2}x^2 \\implies V = \\int_0^h \\frac{a^2}{h^2}x^2\\,dx = \\frac{a^2}{h^2}\\left[\\frac{x^3}{3}\\right]_0^h = \\frac{1}{3}a^2h$`
+                    }
+                ]
+            },
+            {
+                id: 13,
+                weekLabel: 'สัปดาห์ที่ 15',
+                examPeriod: 'FINAL',
+                title: 'ปริมาตรของรูปทรงตันที่เกิดจากการหมุน และความยาวส่วนโค้งของเส้นโค้งบนระนาบ',
+                bookRef: 'หนังสือ บทที่ 7: หัวข้อ 7.3, 7.5',
+                tips: [
+                    '<b>เลือกวิธีหาปริมาตรจากการหมุนให้ถูก ชีวิตจะง่ายขึ้นมาก:</b><br>• <b>Disk / Washer:</b> แถบสี่เหลี่ยมผืนผ้า <b>ตั้งฉาก</b> กับแกนหมุน ($V = \\pi\\int (R^2 - r^2)\\,dx$)<br>• <b>Cylindrical Shell:</b> แถบสี่เหลี่ยมผืนผ้า <b>ขนาน</b> กับแกนหมุน ($V = 2\\pi\\int (\\text{รัศมี})(\\text{ความสูง})\\,dx$)',
+                    '<b>ความยาวส่วนโค้ง (Arc Length):</b> ระวังเครื่องหมายในราก $\\sqrt{1 + (y\')^2}$ ส่วนใหญ่โจทย์จะออกแบบให้พจน์ข้างในจัดรูปเป็น <b>กำลังสองสมบูรณ์</b> เพื่อถอดรากได้พอดี'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 7.3 (ปริมาตรจากการหมุนด้วยวิธี Washer & Shell)',
+                        problem: 'จงหาปริมาตรที่เกิดจากการหมุนบริเวณที่ปิดล้อมด้วย $y = x^2$ และ $y = x$ รอบแกน $x$',
+                        solution: `จุดตัดคือ $x = 0$ และ $x = 1$ หมุนรอบแกน $x$ ใช้แบบ Washer (ตั้งฉากแกน $x$):
+                        รัศมีนอก $R(x) = x$, รัศมีใน $r(x) = x^2$
+                        $$V = \\pi \\int_0^1 [x^2 - (x^2)^2]\\,dx = \\pi \\int_0^1 (x^2 - x^4)\\,dx = \\pi\\left[\\frac{x^3}{3} - \\frac{x^5}{5}\\right]_0^1 = \\frac{2\\pi}{15}$$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 7.5 (ความยาวส่วนโค้งของเส้นโค้ง)',
+                        problem: 'จงหาความยาวส่วนโค้งของเส้นโค้ง $y = \\frac{2}{3}x^{3/2}$ จาก $x = 0$ ถึง $x = 3$',
+                        solution: `หาอนุพันธ์ $y' = \\frac{2}{3} \\cdot \\frac{3}{2}x^{1/2} = \\sqrt{x} \\implies 1 + (y')^2 = 1 + x$
+                        $$L = \\int_0^3 \\sqrt{1 + x}\\,dx = \\left[\\frac{2}{3}(1 + x)^{3/2}\\right]_0^3 = \\frac{2}{3}(4^{3/2} - 1^{3/2}) = \\frac{2}{3}(8 - 1) = \\frac{14}{3}$$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-13-1',
+                        ref: 'แบบฝึกหัด 7.3 ข้อ 1',
+                        question: 'จงหาปริมาตรที่เกิดจากการหมุนบริเวณที่ปิดล้อมด้วย $y = 2x - x^2$ และแกน $x$ รอบแกน $y$ (แนะนำวิธีเปลือกทรงกระบอก)',
+                        answer: '$\\frac{8\\pi}{3}$',
+                        solution: `จุดตัดแกน $x$: $2x - x^2 = 0 \\implies x = 0, 2$
+                        หมุนรอบแกน $y$ ใช้ Shell: รัศมี $= x$, ความสูง $= 2x - x^2$
+                        $$V = 2\\pi \\int_0^2 x(2x - x^2)\\,dx = 2\\pi \\int_0^2 (2x^2 - x^3)\\,dx = 2\\pi\\left[\\frac{2x^3}{3} - \\frac{x^4}{4}\\right]_0^2 = 2\\pi\\left(\\frac{16}{3} - 4\\right) = \\frac{8\\pi}{3}$$`
+                    },
+                    {
+                        id: 'ex-13-2',
+                        ref: 'แบบฝึกหัด 7.5 ข้อ 2',
+                        question: 'จงหาความยาวส่วนโค้งของ $y = \\frac{x^3}{6} + \\frac{1}{2x}$ บนช่วง $[1, 2]$',
+                        answer: '$\\frac{17}{12}$',
+                        solution: `$y' = \\frac{x^2}{2} - \\frac{1}{2x^2} \\implies 1 + (y')^2 = 1 + \\left(\\frac{x^4}{4} - \\frac{1}{2} + \\frac{1}{4x^4}\\right) = \\left(\\frac{x^2}{2} + \\frac{1}{2x^2}\\right)^2$
+                        $$L = \\int_1^2 \\left(\\frac{x^2}{2} + \\frac{1}{2x^2}\\right)dx = \\left[\\frac{x^3}{6} - \\frac{1}{2x}\\right]_1^2 = \\left(\\frac{8}{6} - \\frac{1}{4}\\right) - \\left(\\frac{1}{6} - \\frac{1}{2}\\right) = \\frac{17}{12}$$`
+                    }
+                ]
+            },
+            {
+                id: 14,
+                weekLabel: 'สัปดาห์ที่ 16',
+                examPeriod: 'FINAL',
+                title: 'อินทิกรัลไม่ตรงแบบ ชนิดที่ 1, ชนิดที่ 2 และชนิดผสม',
+                bookRef: 'หนังสือ บทที่ 8: หัวข้อ 8.1–8.3',
+                tips: [
+                    '<b>ชนิดที่ 1 (ขอบเขตเป็น $\\pm\\infty$):</b> เปลี่ยน $\\infty$ เป็นตัวแปร $t$ แล้วเทคลิมิต $t \\to \\infty$ หากเป็น $\\int_{-\\infty}^{\\infty}$ <b>ต้องแบ่งเป็น 2 ช่วง</b> ที่จุดใดจุดหนึ่ง (เช่น $x=0$) และต้องลู่เข้าทั้งคู่จึงจะลู่เข้า',
+                    '<b>ชนิดที่ 2 (ฟังก์ชันไม่ต่อเนื่องบนช่วงอินทิเกรต):</b> <b>จุดระวังสูงสุดในห้องสอบ!</b> ต้องเช็กเสมอว่าตัวส่วนเป็น $0$ ที่ขอบหรือ <b>ตรงกลางช่วงอินทิเกรต</b> หรือไม่! หากอยู่ตรงกลาง $[a, b]$ เช่น $\\int_{-1}^2 \\frac{1}{x^2}\\,dx$ ต้องแยกช่วงที่จุดไม่ต่อเนื่อง $x = 0$ ก่อนเทคลิมิตข้างเดียว',
+                    'สรุปผลลัพธ์: ถ้าลิมิตหาค่าได้เป็นจำนวนจริง ตอบ <b>"ลู่เข้า (Convergent)"</b> พร้อมค่าลิมิต ถ้าเป็น $\\pm\\infty$ หรือหาค่าไม่ได้ ตอบ <b>"ลู่ออก (Divergent)"</b>'
+                ],
+                examples: [
+                    {
+                        ref: 'ตัวอย่าง 8.1 (อินทิกรัลไม่ตรงแบบ ชนิดที่ 1)',
+                        problem: 'จงตรวจสอบว่า $\\displaystyle \\int_1^{\\infty} x e^{-x}\\,dx$ ลู่เข้าหรือลู่ออก หากลู่เข้าจงหาค่า',
+                        solution: `เปลี่ยนขอบเขตบนเป็น $t$ แล้วใช้ By Parts ($u=x, dv=e^{-x}dx \\implies \\int x e^{-x}dx = -xe^{-x} - e^{-x}$):
+                        $$\\begin{aligned}
+                        \\int_1^{\\infty} x e^{-x}\\,dx &= \\lim_{t \\to \\infty} \\left[-x e^{-x} - e^{-x}\\right]_1^t \\\\
+                        &= \\lim_{t \\to \\infty} \\left(-\\frac{t}{e^t} - \\frac{1}{e^t} + \\frac{2}{e}\\right) = 0 - 0 + \\frac{2}{e} = \\frac{2}{e}
+                        \\end{aligned}$$
+                        (โดยกฎโลปิตาล $\\lim_{t \\to \\infty} \\frac{t}{e^t} = 0$) ดังนั้นอินทิกรัล <b>ลู่เข้า</b> และมีค่าเท่ากับ $\\frac{2}{e}$`
+                    },
+                    {
+                        ref: 'ตัวอย่าง 8.2 (อินทิกรัลไม่ตรงแบบ ชนิดที่ 2 - ไม่ต่อเนื่องที่จุดปลาย)',
+                        problem: 'จงพิจารณาว่า $\\displaystyle \\int_0^4 \\frac{1}{\\sqrt{x}}\\,dx$ ลู่เข้าหรือลู่ออก',
+                        solution: `ฟังก์ชัน $f(x) = \\frac{1}{\\sqrt{x}}$ ไม่ต่อเนื่องที่ $x = 0$ จึงเขียนในรูปลิมิตทางขวา $t \\to 0^+$:
+                        $$\\int_0^4 x^{-1/2}\\,dx = \\lim_{t \\to 0^+} \\left[2\\sqrt{x}\\right]_t^4 = \\lim_{t \\to 0^+} (2\\sqrt{4} - 2\\sqrt{t}) = 4 - 0 = 4$$
+                        ดังนั้นอินทิกรัล <b>ลู่เข้า</b> และมีค่าเท่ากับ $4$`
+                    }
+                ],
+                exercises: [
+                    {
+                        id: 'ex-14-1',
+                        ref: 'แบบฝึกหัด 8.1 ข้อ 1',
+                        question: 'จงตรวจสอบว่า $\\displaystyle \\int_{-\\infty}^{\\infty} \\frac{1}{1 + x^2}\\,dx$ ลู่เข้าหรือลู่ออก หากลู่เข้าจงหาค่า',
+                        answer: 'ลู่เข้า มีค่าเท่ากับ $\\pi$',
+                        solution: `แบ่งช่วงที่ $x = 0$:
+                        $$\\int_{-\\infty}^0 \\frac{dx}{1+x^2} + \\int_0^{\\infty} \\frac{dx}{1+x^2} = \\lim_{a \\to -\\infty}[\\arctan x]_a^0 + \\lim_{b \\to \\infty}[\\arctan x]_0^b$$
+                        $$= \\left(0 - \\left(-\\frac{\\pi}{2}\\right)\\right) + \\left(\\frac{\\pi}{2} - 0\\right) = \\frac{\\pi}{2} + \\frac{\\pi}{2} = \\pi \\quad (\\text{ลู่เข้า})$$`
+                    },
+                    {
+                        id: 'ex-14-2',
+                        ref: 'แบบฝึกหัด 8.2 ข้อ 2',
+                        question: 'จงตรวจสอบว่า $\\displaystyle \\int_0^3 \\frac{1}{x - 1}\\,dx$ ลู่เข้าหรือลู่ออก',
+                        answer: 'ลู่ออก (Divergent)',
+                        solution: `จุดไม่ต่อเนื่องคือ $x = 1$ ซึ่งอยู่ภายในช่วง $[0, 3]$ ต้องแยกเป็น $\\int_0^1 \\frac{dx}{x-1} + \\int_1^3 \\frac{dx}{x-1}$
+                        พิจารณาช่วงแรก:
+                        $$\\lim_{t \\to 1^-} \\int_0^t \\frac{dx}{x-1} = \\lim_{t \\to 1^-} [\\ln|x-1|]_0^t = \\lim_{t \\to 1^-} (\\ln|t-1| - \\ln 1) = -\\infty$$
+                        เนื่องจากส่วนแรกลู่ออก จึงสรุปได้ทันทีว่าอินทิกรัลนี้ <b>ลู่ออก (Divergent)</b>`
+                    }
+                ]
+            }
+        ];
+
+        // ============================================================================
+        // 3. State Management & Persistence
+        // ============================================================================
+        let state = {
+            activeModuleId: 1,
+            formulaMode: 'sync', // 'sync' | 'all'
+            allSolutionsOpen: false,
+            allFormulasCollapsed: false,
+            completedExercises: JSON.parse(localStorage.getItem('cal1_completed_ex') || '{}')
+        };
+
+        // ============================================================================
+        // 4. Render Functions
+        // ============================================================================
+        function renderWeekNavigator() {
+            const nav = document.getElementById('week-navigator');
+            nav.innerHTML = MODULES.map(m => {
+                const isMidterm = m.examPeriod === 'MIDTERM';
+                const isActive = state.activeModuleId === m.id;
+                const badgeColor = isMidterm 
+                    ? (isActive ? 'bg-blue-600 text-white border-blue-400' : 'bg-slate-800 text-blue-300 border-slate-700 hover:bg-slate-700')
+                    : (isActive ? 'bg-amber-600 text-white border-amber-400' : 'bg-slate-800 text-amber-300 border-slate-700 hover:bg-slate-700');
+
+                return `
+                    <button onclick="scrollToModule(${m.id})" id="nav-btn-${m.id}"
+                        class="shrink-0 px-3 py-1.5 rounded-xl border text-xs font-medium transition flex items-center gap-1.5 cursor-pointer ${badgeColor}">
+                        <span class="font-bold">หมวด ${m.id}</span>
+                        <span class="opacity-85">(${m.weekLabel.replace('สัปดาห์ที่ ', 'W')})</span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function renderModules() {
+            const container = document.getElementById('modules-container');
+            container.innerHTML = MODULES.map(m => {
+                const isMidterm = m.examPeriod === 'MIDTERM';
+                const periodBadge = isMidterm
+                    ? `<span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-blue-100 text-blue-800 border border-blue-200">MIDTERM • ${m.weekLabel}</span>`
+                    : `<span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-amber-100 text-amber-800 border border-amber-200">FINAL • ${m.weekLabel}</span>`;
+
+                const tipsHtml = m.tips.map(t => `<li class="flex items-start gap-2"><span class="text-amber-600 font-bold mt-0.5">•</span><span>${t}</span></li>`).join('');
+
+                const examplesHtml = m.examples.map((ex, idx) => `
+                    <div class="bg-slate-50 rounded-xl p-4 border border-slate-200/90">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="text-xs font-bold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-lg border border-indigo-100">
+                                ตัวอย่างที่ ${m.id}.${idx + 1} — ${ex.ref}
+                            </span>
+                        </div>
+                        <div class="text-sm sm:text-base font-medium text-slate-900 mb-3 leading-relaxed">
+                            ${ex.problem}
+                        </div>
+                        <div class="bg-white rounded-xl p-3.5 border-l-4 border-indigo-500 text-sm text-slate-700 leading-relaxed shadow-2xs">
+                            <div class="text-xs font-bold text-indigo-600 uppercase tracking-wider mb-1">วิธีทำละเอียด:</div>
+                            ${ex.solution}
+                        </div>
+                    </div>
+                `).join('');
+
+                const exercisesHtml = m.exercises.map((ex, idx) => {
+                    const isChecked = !!state.completedExercises[ex.id];
+                    return `
+                        <div class="rounded-xl border ${isChecked ? 'border-emerald-300 bg-emerald-50/30' : 'border-slate-200 bg-white'} p-4 transition" id="card-${ex.id}">
+                            <div class="flex items-start justify-between gap-3">
+                                <div class="flex-1">
+                                    <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                                        <span class="text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
+                                            โจทย์ฝึกทำ ${m.id}.${idx + 1} (${ex.ref})
+                                        </span>
+                                    </div>
+                                    <div class="text-sm sm:text-base font-medium text-slate-900 leading-relaxed">
+                                        ${ex.question}
+                                    </div>
+                                </div>
+
+                                <!-- Checkbox Mark as Done -->
+                                <label class="flex items-center gap-1.5 text-xs font-medium text-slate-600 cursor-pointer select-none shrink-0 bg-slate-50 hover:bg-slate-100 px-2.5 py-1.5 rounded-lg border border-slate-200 no-print">
+                                    <input type="checkbox" ${isChecked ? 'checked' : ''} onchange="toggleExerciseComplete('${ex.id}')" class="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 cursor-pointer">
+                                    <span>ทำแล้ว</span>
+                                </label>
+                            </div>
+
+                            <!-- Toggle Solution Button -->
+                            <div class="mt-3 flex items-center gap-2 no-print">
+                                <button onclick="toggleSingleSolution('${ex.id}')" id="btn-sol-${ex.id}"
+                                    class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-white transition flex items-center gap-1.5 cursor-pointer">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    <span>ดูเฉลย</span>
+                                </button>
+                            </div>
+
+                            <!-- Collapsible Solution Box -->
+                            <div id="sol-${ex.id}" class="solution-box ${state.allSolutionsOpen ? '' : 'hidden'} mt-3 pt-3 border-t border-dashed border-slate-200">
+                                <div class="bg-emerald-50/70 rounded-xl p-3.5 border border-emerald-200/80 text-sm text-slate-800 leading-relaxed">
+                                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                                        <span class="text-xs font-bold text-emerald-800">เฉลยและวิธีทำ (ตรงตามเฉลยท้ายบท):</span>
+                                        <span class="text-xs font-bold bg-emerald-600 text-white px-2.5 py-0.5 rounded-full">
+                                            คำตอบ: ${ex.answer}
+                                        </span>
+                                    </div>
+                                    <div class="mt-1">${ex.solution}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                return `
+                    <section id="module-${m.id}" data-module-id="${m.id}" class="module-card scroll-mt-32 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                        <!-- Card Header -->
+                        <div class="px-5 py-4 bg-gradient-to-r from-slate-50 to-white border-b border-slate-200">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <span class="px-2.5 py-0.5 text-xs font-bold rounded-lg bg-slate-900 text-white">หมวดที่ ${m.id}</span>
+                                    ${periodBadge}
+                                </div>
+                                <span class="text-xs font-semibold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-lg border border-indigo-100">
+                                    ${m.bookRef}
+                                </span>
+                            </div>
+                            <h2 class="text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                                ${m.title}
+                            </h2>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-5 space-y-5">
+                            <!-- Exam Tips Box -->
+                            <div class="bg-amber-50/80 rounded-xl p-4 border border-amber-200/80">
+                                <div class="flex items-center gap-2 text-amber-900 font-bold text-sm mb-2">
+                                    <svg class="w-4 h-4 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    <span>คำแนะนำบทเรียน & เทคนิค/จุดระวังในห้องสอบ</span>
+                                </div>
+                                <ul class="space-y-1.5 text-sm text-amber-950/90 leading-relaxed">
+                                    ${tipsHtml}
+                                </ul>
+                            </div>
+
+                            <!-- Worked Examples -->
+                            <div>
+                                <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                    <span class="w-1.5 h-4 bg-indigo-600 rounded-full"></span>
+                                    ตัวอย่างโจทย์พร้อมวิธีทำละเอียด
+                                </h3>
+                                <div class="space-y-3.5">
+                                    ${examplesHtml}
+                                </div>
+                            </div>
+
+                            <!-- Practice Exercises -->
+                            <div>
+                                <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                    <span class="w-1.5 h-4 bg-emerald-600 rounded-full"></span>
+                                    แบบฝึกหัดจากหนังสือ (ฝึกทำพร้อมเฉลย)
+                                </h3>
+                                <div class="space-y-3">
+                                    ${exercisesHtml}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                `;
+            }).join('');
+        }
+
+        function renderFormulas() {
+            const list = document.getElementById('formula-list');
+            const query = document.getElementById('formula-search').value.trim().toLowerCase();
+            const syncBadge = document.getElementById('active-sync-badge');
+
+            if (state.formulaMode === 'sync') {
+                syncBadge.textContent = `ซิงค์: หมวดที่ ${state.activeModuleId}`;
+                syncBadge.classList.remove('hidden');
+            } else {
+                syncBadge.textContent = 'แสดงทั้งหมด';
+            }
+
+            let filteredGroups = FORMULA_GROUPS;
+
+            // Filter by Active Module if in 'sync' mode and no search query
+            if (state.formulaMode === 'sync' && query === '') {
+                filteredGroups = FORMULA_GROUPS.filter(g => g.modules.includes(state.activeModuleId));
+            }
+
+            // Filter by search query
+            if (query !== '') {
+                filteredGroups = FORMULA_GROUPS.map(g => {
+                    const matchedFormulas = g.formulas.filter(f => 
+                        f.name.toLowerCase().includes(query) || 
+                        f.tex.toLowerCase().includes(query) ||
+                        g.title.toLowerCase().includes(query)
+                    );
+                    return { ...g, formulas: matchedFormulas };
+                }).filter(g => g.formulas.length > 0);
+            }
+
+            if (filteredGroups.length === 0) {
+                list.innerHTML = `<div class="text-center py-8 text-xs text-slate-400">ไม่พบสูตรที่ตรงกับคำค้นหา "${query}"</div>`;
+                return;
+            }
+
+            list.innerHTML = filteredGroups.map(g => `
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-2xs">
+                    <button onclick="toggleFormulaGroup('${g.id}')" class="w-full px-3.5 py-2.5 bg-slate-100/80 hover:bg-slate-100 flex items-center justify-between text-left transition cursor-pointer">
+                        <span class="text-xs font-bold text-slate-800">${g.title}</span>
+                        <svg id="icon-${g.id}" class="w-4 h-4 text-slate-500 transition-transform ${state.allFormulasCollapsed ? '-rotate-90' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="body-${g.id}" class="formula-content ${state.allFormulasCollapsed ? 'hidden' : ''} p-3 space-y-2.5 divide-y divide-slate-100">
+                        ${g.formulas.map(f => `
+                            <div class="pt-2 first:pt-0">
+                                <div class="text-[11px] font-semibold text-indigo-700 mb-1">${f.name}</div>
+                                <div class="text-xs sm:text-sm text-slate-800 bg-slate-50 px-2.5 py-1.5 rounded-lg border border-slate-200/60 overflow-x-auto">
+                                    $$${f.tex}$$
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            typesetMath(list);
+        }
+
+        // ============================================================================
+        // 5. Interactive Handlers
+        // ============================================================================
+        function typesetMath(element = null) {
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                MathJax.typesetPromise(element ? [element] : undefined).catch(err => console.warn('MathJax error:', err));
+            }
+        }
+
+        function scrollToModule(id) {
+            setActiveModule(id);
+            const el = document.getElementById(`module-${id}`);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function setActiveModule(id) {
+            if (state.activeModuleId === id) return;
+            state.activeModuleId = id;
+            renderWeekNavigator();
+            
+            // Auto scroll horizontal navigator to keep active button visible
+            const activeBtn = document.getElementById(`nav-btn-${id}`);
+            if (activeBtn) {
+                activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+
+            if (state.formulaMode === 'sync') {
+                renderFormulas();
+            }
+        }
+
+        function setFormulaMode(mode) {
+            state.formulaMode = mode;
+            const btnSync = document.getElementById('btn-mode-sync');
+            const btnAll = document.getElementById('btn-mode-all');
+
+            if (mode === 'sync') {
+                btnSync.className = 'py-1.5 px-2 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition cursor-pointer';
+                btnAll.className = 'py-1.5 px-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition cursor-pointer';
+            } else {
+                btnAll.className = 'py-1.5 px-2 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition cursor-pointer';
+                btnSync.className = 'py-1.5 px-2 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition cursor-pointer';
+            }
+            renderFormulas();
+        }
+
+        function toggleFormulaGroup(groupId) {
+            const body = document.getElementById(`body-${groupId}`);
+            const icon = document.getElementById(`icon-${groupId}`);
+            if (body) {
+                body.classList.toggle('hidden');
+                icon.classList.toggle('-rotate-90');
+            }
+        }
+
+        function toggleAllFormulaGroups() {
+            state.allFormulasCollapsed = !state.allFormulasCollapsed;
+            renderFormulas();
+        }
+
+        function toggleSingleSolution(exId) {
+            const box = document.getElementById(`sol-${exId}`);
+            const btn = document.getElementById(`btn-sol-${exId}`);
+            if (!box) return;
+
+            const isHidden = box.classList.contains('hidden');
+            if (isHidden) {
+                box.classList.remove('hidden');
+                btn.querySelector('span').textContent = 'ซ่อนเฉลย';
+                btn.classList.replace('bg-slate-800', 'bg-emerald-700');
+                typesetMath(box);
+            } else {
+                box.classList.add('hidden');
+                btn.querySelector('span').textContent = 'ดูเฉลย';
+                btn.classList.replace('bg-emerald-700', 'bg-slate-800');
+            }
+        }
+
+        function toggleAllSolutions() {
+            state.allSolutionsOpen = !state.allSolutionsOpen;
+            const label = document.getElementById('label-toggle-all-solutions');
+            label.textContent = state.allSolutionsOpen ? 'ซ่อนเฉลยทั้งหมด' : 'เปิดเฉลยทั้งหมด';
+
+            document.querySelectorAll('.solution-box').forEach(box => {
+                const exId = box.id.replace('sol-', '');
+                const btn = document.getElementById(`btn-sol-${exId}`);
+                if (state.allSolutionsOpen) {
+                    box.classList.remove('hidden');
+                    if (btn) {
+                        btn.querySelector('span').textContent = 'ซ่อนเฉลย';
+                        btn.classList.replace('bg-slate-800', 'bg-emerald-700');
+                    }
+                } else {
+                    box.classList.add('hidden');
+                    if (btn) {
+                        btn.querySelector('span').textContent = 'ดูเฉลย';
+                        btn.classList.replace('bg-emerald-700', 'bg-slate-800');
+                    }
+                }
+            });
+
+            if (state.allSolutionsOpen) {
+                typesetMath();
+            }
+        }
+
+        function toggleExerciseComplete(exId) {
+            if (state.completedExercises[exId]) {
+                delete state.completedExercises[exId];
+            } else {
+                state.completedExercises[exId] = true;
+            }
+            localStorage.setItem('cal1_completed_ex', JSON.stringify(state.completedExercises));
+
+            const card = document.getElementById(`card-${exId}`);
+            if (card) {
+                if (state.completedExercises[exId]) {
+                    card.classList.remove('border-slate-200', 'bg-white');
+                    card.classList.add('border-emerald-300', 'bg-emerald-50/30');
+                } else {
+                    card.classList.add('border-slate-200', 'bg-white');
+                    card.classList.remove('border-emerald-300', 'bg-emerald-50/30');
+                }
+            }
+            updateProgressUI();
+        }
+
+        function updateProgressUI() {
+            const total = MODULES.reduce((acc, m) => acc + m.exercises.length, 0);
+            const completed = Object.keys(state.completedExercises).length;
+            const pct = Math.round((completed / total) * 100);
+
+            document.getElementById('progress-text').textContent = `${completed} / ${total} ข้อ`;
+            document.getElementById('progress-bar').style.width = `${pct}%`;
+        }
+
+        function handlePrintPDF() {
+            // Ensure all formulas & solutions are rendered before printing
+            const prevMode = state.formulaMode;
+            const prevCollapsed = state.allFormulasCollapsed;
+            state.formulaMode = 'all';
+            state.allFormulasCollapsed = false;
+            renderFormulas();
+
+            document.querySelectorAll('.solution-box').forEach(box => box.classList.remove('hidden'));
+            typesetMath();
+
+            setTimeout(() => {
+                window.print();
+                // Restore previous UI state after print dialog closes
+                state.formulaMode = prevMode;
+                state.allFormulasCollapsed = prevCollapsed;
+                renderFormulas();
+                if (!state.allSolutionsOpen) {
+                    document.querySelectorAll('.solution-box').forEach(box => {
+                        const exId = box.id.replace('sol-', '');
+                        const btn = document.getElementById(`btn-sol-${exId}`);
+                        if (btn && btn.querySelector('span').textContent === 'ดูเฉลย') {
+                            box.classList.add('hidden');
+                        }
+                    });
+                }
+            }, 350);
+        }
+
+        // Intersection Observer for Auto-Sync Sidebar
+        function setupScrollObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const modId = parseInt(entry.target.getAttribute('data-module-id'), 10);
+                        setActiveModule(modId);
+                    }
+                });
+            }, {
+                rootMargin: '-140px 0px -60% 0px',
+                threshold: 0.05
+            });
+
+            document.querySelectorAll('.module-card').forEach(card => observer.observe(card));
+        }
+
+        // ============================================================================
+        // 6. Initialize App
+        // ============================================================================
+        window.addEventListener('DOMContentLoaded', () => {
+            renderWeekNavigator();
+            renderModules();
+            renderFormulas();
+            updateProgressUI();
+            setupScrollObserver();
+            typesetMath();
+        });
+    </script>
+</body>
+</html>
